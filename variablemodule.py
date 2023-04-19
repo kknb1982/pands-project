@@ -1,10 +1,5 @@
-#
-# Author: Kirstin Barnett
+import pandas as pd 
 
-import pandas as pd
-import matplotlib.pyplot as plt
-import numpy as np
-from irisattributes import *
 # Create the headers for the data fields as these aren't in the data file
 colnames = ["sepal length", "sepal width", "petal length", "petal width", "class"]
 
