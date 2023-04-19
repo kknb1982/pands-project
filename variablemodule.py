@@ -17,5 +17,3 @@ def getdatainformation(data):
         print (data[name].max())
         print (data[name].median())
         print (" ")
-
-print (getdatainformation(data))
