@@ -12,8 +12,9 @@ datafields = colnames[:-1]
 def getdatainformation(data):
     for name in datafields:
         print (name)
-        print (data[name].mean())
         print (data[name].min())
         print (data[name].max())
+        print (data[name].mean())
         print (data[name].median())
+        print (data[name].mode())
         print (" ")
