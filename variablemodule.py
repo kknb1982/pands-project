@@ -1,20 +1,14 @@
 import pandas as pd 
+#
 
-# Create the headers for the data fields as these aren't in the data file
-colnames = ["sepal length", "sepal width", "petal length", "petal width", "class"]
+sepallen = "Sepal Length"
+sepalwid = "Sepal Width"
+petallen = "Petal Length"
+petalwid = "Petal Width"
+species = "Species"
 
-# Import Fisher's Iris dataset
+datafields = sepallen, sepalwid, petallen, petalwid, species
+
+# Import data
 data = pd.read_csv("https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data", 
-                   names = colnames)
-
-# Data analysis
-datafields = colnames[:-1]
-def getdatainformation(data):
-    for name in datafields:
-        print (name)
-        print (data[name].min())
-        print (data[name].max())
-        print (data[name].mean())
-        print (data[name].median())
-        print (data[name].mode())
-        print (" ")
+                   names = datafields)
