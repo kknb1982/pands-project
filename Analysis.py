@@ -4,16 +4,19 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
-from irisattributes import *
-# Create the headers for the data fields as these aren't in the data file
-colnames = ["sepal length", "sepal width", "petal length", "petal width", "class"]
+
+sepallen = "Sepal Length"
+sepalwid = "Sepal Width"
+petallen = "Petal Length"
+petalwid = "Petal Width"
+irisclass = "Class"
 
 # Import Fisher's Iris dataset
 data = pd.read_csv("https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data", 
-                   names = colnames)
+                   names = (sepallen, sepalwid, petallen, petalwid, irisclass))
 
 # Data analysis
-datafields = colnames[:-1]
+datafields = sepallen, sepalwid, petallen, petalwid
 def getdatainformation(data):
     for name in datafields:
         print (name)
@@ -24,3 +27,6 @@ def getdatainformation(data):
         print (" ")
 
 print (getdatainformation(data))
+
+data.plot(kind = 'scatter', x = "sepal length", y = "sepal width")
+plt.show()
