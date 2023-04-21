@@ -15,20 +15,6 @@ data = pd.read_csv("https://archive.ics.uci.edu/ml/machine-learning-databases/ir
 
 print (data.head())
 
-for name in datafields:
-    if name != species:
-        print (name)
-        min = data[name].min()
-        max = data[name].max()
-        print("Minimum: ", min, "\nMaximum: ", max)
-        mean = data[name].mean()
-        median = data[name].median()
-        mode = data[name].mode()
-        print("Mean: ", mean,"\nMedian: ", median, "\nMode: ", mode)
-        name = data[[name, species]]
-        print (name.head())
-     
-    else: 
-        break
+
 
 print(data.corr())
