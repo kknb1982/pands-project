@@ -28,5 +28,5 @@ def getdatainformation(data):
 
 print (getdatainformation(data))
 
-data.plot(kind = 'scatter', x = "sepal length", y = "sepal width")
+data.plot(kind = 'scatter', x = sepallen, y = sepalwid)
 plt.show()
