@@ -22,8 +22,8 @@ dataf = pd.read_csv("https://archive.ics.uci.edu/ml/machine-learning-databases/i
 
 # Defines a function to creates a text file with summary data about the variable
 def printfielddata():
-    # Opens a text file called summary.txt to append data to, if it does not exist it will create it
-    with open('summary.txt', 'a') as f:
+    # Opens a text file called summary.txt to write data to, if it does not exist it will create it
+    with open('summary.txt', 'w') as f:
         # iterate through the columns of the data
         for name in datafields:
             # Ignore species at this is not numerical data
