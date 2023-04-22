@@ -9,7 +9,9 @@ from variablemodule import *
 # Creates a file and prints basic statistical information about each column to the file variabledata.txt
 printfielddata()
 
+# Creates histograms of each variable
 createsimplehist()
 gethisto()
 
+# Creates scatter plot for two variables
 createpairplot()
