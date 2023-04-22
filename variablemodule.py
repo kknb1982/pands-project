@@ -42,15 +42,15 @@ def printfielddata():
             else:
                 f.close()
 
+def createsimplehist():
+    dataf.hist()
+    plt.savefig('combinedhist.png')
+
 def gethisto():
     for name in datafields:
         if name != species:
             sns.histplot(data=dataf, x=name, hue=species, binwidth=0.5)
             plt.savefig(name+ '.png')
-
-def createsimplehist():
-    dataf.hist()
-    plt.savefig('combinedhist.png')
 
 def createpairplot():
     sns.pairplot(dataf, hue=species)
