@@ -10,3 +10,5 @@ from variablemodule import *
 printfielddata()
 
 gethisto()
+
+createsimplehist()
