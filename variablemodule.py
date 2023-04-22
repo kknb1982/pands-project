@@ -14,7 +14,7 @@ dataf = pd.read_csv("https://archive.ics.uci.edu/ml/machine-learning-databases/i
                    names = datafields)
 
 def printfielddata():
-    with open('variabledata.txt', 'a') as f:
+    with open('summary.txt', 'a') as f:
         for name in datafields:
             if name != species:
                 header = (f'The column title is {name}')
