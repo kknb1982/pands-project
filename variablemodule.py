@@ -1,5 +1,7 @@
 import pandas as pd 
-#
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns #
 
 sepallen = "Sepal Length"
 sepalwid = "Sepal Width"
@@ -30,3 +32,9 @@ def printfielddata():
                 f.writelines(averages)
             else:
                 f.close()
+
+def gethisto():
+    for name in datafields:
+        if name != species:
+            sns.histplot(data=dataf, x=name, hue=species, multiple="dodge")
+            plt.savefig(name+ '.png')
