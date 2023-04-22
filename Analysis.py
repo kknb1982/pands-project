@@ -9,8 +9,7 @@ from variablemodule import *
 # Creates a file and prints basic statistical information about each column to the file variabledata.txt
 printfielddata()
 
-gethisto()
-
 createsimplehist()
+gethisto()
 
 createpairplot()
