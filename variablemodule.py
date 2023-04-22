@@ -36,5 +36,9 @@ def printfielddata():
 def gethisto():
     for name in datafields:
         if name != species:
-            sns.histplot(data=dataf, x=name, hue=species, multiple="dodge")
+            sns.histplot(data=dataf, x=name, hue=species, binwidth=0.5)
             plt.savefig(name+ '.png')
+
+def createsimplehist():
+    dataf.hist()
+    plt.savefig(combinedhistso.png)
