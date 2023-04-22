@@ -4,4 +4,5 @@
 from variablemodule import *
 from fielddatamodule import *
 
-print(getfielddata())
+# Creates a file and prints basic statistical information about each column to the file variabledata.txt
+printfielddata())

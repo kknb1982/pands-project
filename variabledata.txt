@@ -1,1 +1,0 @@
-This is a file summarising details about the variables in Fisher's Iris Data Set
