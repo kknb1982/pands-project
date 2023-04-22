@@ -41,4 +41,4 @@ def gethisto():
 
 def createsimplehist():
     dataf.hist()
-    plt.savefig(combinedhistso.png)
+    plt.savefig('combinedhistso.png')
