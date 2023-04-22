@@ -1,8 +1,13 @@
+# File of all the functions required to read in Fisher's Iris Data Set and create the outputs requested
+# Author: Kirstin Barnett
+
+# Import the libraries needed
 import pandas as pd 
 import numpy as np
 import matplotlib.pyplot as plt
-import seaborn as sns #
+import seaborn as sns 
 
+# Create the variable names
 sepallen = "Sepal Length"
 sepalwid = "Sepal Width"
 petallen = "Petal Length"
@@ -11,13 +16,17 @@ species = "Species"
 
 datafields = sepallen, sepalwid, petallen, petalwid, species
 
-# Import data
+# Import Fishers Iris Dataset to a DataFrame
 dataf = pd.read_csv("https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data", 
                    names = datafields)
 
+# Defines a function to creates a text file with summary data about the variable
 def printfielddata():
+    # Opens a text file called summary.txt to append data to, if it does not exist it will create it
     with open('summary.txt', 'a') as f:
+        # iterate through the columns of the data
         for name in datafields:
+            # Ignore species at this is not numerical data
             if name != species:
                 header = (f'The column title is {name}')
                 f.write(header)
