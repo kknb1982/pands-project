@@ -45,3 +45,4 @@ def createsimplehist():
 
 def createpairplot():
     sns.pairplot(dataf, hue=species)
+    plt.savefig('pairplot.png')
