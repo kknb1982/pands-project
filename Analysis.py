@@ -12,3 +12,5 @@ printfielddata()
 gethisto()
 
 createsimplehist()
+
+createpairplot()
