@@ -55,6 +55,8 @@ def gethisto():
     for name in datafields:
         if name != species:
             sns.histplot(data=dataf, x=name, hue=species, bins=bars)
+            plt.xlabel(name)
+            plt.title(f'Histogram of the relevant frequency of a\n{name.lower()} highlighted by iris species')
             plt.savefig(name+ '.png')
 
 def createpairplot():
