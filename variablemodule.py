@@ -47,7 +47,7 @@ def createsimplehist():
     plt.savefig('combinedhist.png')
 
 def gethisto():
-        for name in datafields:
+    for name in datafields:
         if name != species:
             sns.histplot(data=dataf, x=name, hue=species, binwidth=0.1)
             plt.xlabel(f'{name} in cm')
