@@ -47,15 +47,10 @@ def createsimplehist():
     plt.savefig('combinedhist.png')
 
 def gethisto():
-    # Creates bins for the bars of with constant variables across the plots
-    bars = []
-    for i in np.arange (0, 9, 0.2):
-        bar = i
-        bars.append(bar)
-    for name in datafields:
+        for name in datafields:
         if name != species:
-            sns.histplot(data=dataf, x=name, hue=species, bins=bars)
-            plt.xlabel(name)
+            sns.histplot(data=dataf, x=name, hue=species, binwidth=0.1)
+            plt.xlabel(f'{name} in cm')
             plt.title(f'Histogram of the relevant frequency of a\n{name.lower()} highlighted by iris species')
             plt.savefig(name+ '.png')
 
