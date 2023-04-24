@@ -39,7 +39,12 @@ def printfielddata():
                 mode = str(dataf[name].mode())
                 averages = (f'\nMean: {mean} \nMedian: {median} \nMode: {mode}\n\n')
                 f.writelines(averages)
-            else:
+        elif:
+            for x in irisspecies:
+                print (x)
+                x = dataf[dataf["Species"] == x]
+                print (x.describe())
+        else:
                 f.close()
 
 def createsimplehist():
