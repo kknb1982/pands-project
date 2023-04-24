@@ -44,7 +44,7 @@ def printfielddata():
                 f.writelines(averages)              
             else:
                 for x in irisspecies:
-                    f.write(x)
+                    f.writelines(f'\n {x} \n')
                     x = dataf[dataf["Species"] == x]
                     describex = x.describe()
                     stringx = describex.to_string(header=True, index =True)
