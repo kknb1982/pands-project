@@ -15,11 +15,13 @@ petalwid = "Petal Width"
 species = "Species"
 
 datafields = sepallen, sepalwid, petallen, petalwid, species
-irisspecies = dataf.Species.unique()
 
 # Import Fishers Iris Dataset to a DataFrame
 dataf = pd.read_csv("https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data", 
                    names = datafields)
+
+# Finds the names of the iris species
+irisspecies = dataf.Species.unique()
 
 # Defines a function to creates a text file with summary data about the variable
 def printfielddata():
@@ -42,9 +44,11 @@ def printfielddata():
                 f.writelines(averages)              
             else:
                 for x in irisspecies:
-                    print (x)
+                    f.write(x)
                     x = dataf[dataf["Species"] == x]
-                    print (x.describe())
+                    describex = x.describe()
+                    stringx = describex.to_string(header=True, index =True)
+                    f.writelines(stringx) 
                 f.close()
 
 def createsimplehist():
