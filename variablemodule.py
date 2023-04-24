@@ -15,6 +15,7 @@ petalwid = "Petal Width"
 species = "Species"
 
 datafields = sepallen, sepalwid, petallen, petalwid, species
+irisspecies = dataf.Species.unique()
 
 # Import Fishers Iris Dataset to a DataFrame
 dataf = pd.read_csv("https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data", 
@@ -38,13 +39,12 @@ def printfielddata():
                 median = str(dataf[name].median())
                 mode = str(dataf[name].mode())
                 averages = (f'\nMean: {mean} \nMedian: {median} \nMode: {mode}\n\n')
-                f.writelines(averages)
-            elif:
+                f.writelines(averages)              
+            else:
                 for x in irisspecies:
                     print (x)
                     x = dataf[dataf["Species"] == x]
                     print (x.describe())
-            else:
                 f.close()
 
 def createsimplehist():
