@@ -61,7 +61,7 @@ def gethisto():
         if name != species:
             sns.histplot(data=dataf, x=name, hue=species, binwidth=0.1)
             plt.xlabel(f'{name} in cm')
-            plt.title(f'Histogram of the relevant frequency of a\n{name.lower()} highlighted by iris species')
+            plt.title(f'Histogram of the relevant frequency of \n{name.lower()} highlighted by iris species')
             plt.savefig(name+ '.png')
             plt.close()
 
