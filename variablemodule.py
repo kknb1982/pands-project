@@ -44,7 +44,7 @@ def printfielddata():
                 f.writelines(averages)              
             else:
                 for x in irisspecies:
-                    f.writelines(f'\n {x} \n')
+                    f.writelines(f'\n{x} \n')
                     x = dataf[dataf["Species"] == x]
                     describex = x.describe()
                     stringx = describex.to_string(header=True, index =True)
@@ -54,6 +54,7 @@ def printfielddata():
 def createsimplehist():
     dataf.hist()
     plt.savefig('combinedhist.png')
+    plt.close()
 
 def gethisto():
     for name in datafields:
@@ -62,7 +63,9 @@ def gethisto():
             plt.xlabel(f'{name} in cm')
             plt.title(f'Histogram of the relevant frequency of a\n{name.lower()} highlighted by iris species')
             plt.savefig(name+ '.png')
+            plt.close()
 
 def createpairplot():
     sns.pairplot(dataf, hue=species)
     plt.savefig('pairplot.png')
+    plt.close()
