@@ -53,10 +53,10 @@ The final module creates scatter plot for two variables.
 ## 3.2 The code
 ### 3.2.1 Import the libraries needed
 In order to analyse the data a few libraries are needed:
-* `Pandas` to import the dataset and create the dataframe [1](https://pandas.pydata.org/pandas-docs/stable/user_guide/categorical.html). 
-* `Numpy` to create the statistical analyses of the data and support the creation of the plots [2](https://numpy.org/). 
-* `Matplotlib` to create the simple histograms without colouring by species [3](https://matplotlib.org/). 
-* `Seaborn` to create the coloured histograms and scatterplots [4](https://seaborn.pydata.org/index.html).
+* `Pandas` to import the dataset and create the dataframe [[1]](https://pandas.pydata.org/pandas-docs/stable/user_guide/categorical.html). 
+* `Numpy` to create the statistical analyses of the data and support the creation of the plots [[2]](https://numpy.org/). 
+* `Matplotlib` to create the simple histograms without colouring by species [[3]](https://matplotlib.org/). 
+* `Seaborn` to create the coloured histograms and scatterplots [[4]](https://seaborn.pydata.org/index.html).
 
 The libraries have been imported using aliases to make the code more streamlined. 
 
@@ -77,38 +77,38 @@ Fisher's Iris Dataset is published at https://archive.ics.uci.edu/ml/datasets/Ir
   datafields = sepallen, sepalwid, petallen, petalwid, species
 
 ### 3.2.3 Import Fishers Iris Dataset to a DataFrame
-The code needs to import the Fisher's Iris Dataset and create a `DataFrame` using Pandas [6](https://pandas.pydata.org/pandas-docs/stable/user_guide/io.html#csv-text-files).
+The code needs to import the Fisher's Iris Dataset and create a `DataFrame` using Pandas [[6]](https://pandas.pydata.org/pandas-docs/stable/user_guide/io.html#csv-text-files).
 
   dataf = pd.read_csv("https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data", 
                    names = datafields)
 
 ### 3.2.4 Finds the names of the iris species
-Throughout the analysis it is useful to interrogate the data and plot it for each species separately. Therefore, we use the `Pandas` `unique()` method on the column "species" to find out the unique values in this column [7](https://www.geeksforgeeks.org/get-unique-values-from-a-column-in-pandas-dataframe/). 
+Throughout the analysis it is useful to interrogate the data and plot it for each species separately. Therefore, we use the `Pandas` `unique()` method on the column "species" to find out the unique values in this column [[7]](https://www.geeksforgeeks.org/get-unique-values-from-a-column-in-pandas-dataframe/). 
 
   irisspecies = dataf.Species.unique()
 
 ### 3.2.5 Defines a function to create a text file with summary data about the variable
-The code now moves on to defining functions for the different analyses required [8](https://www.w3schools.com/python/python_functions.asp). First is the function `printfielddata`.
+The code now moves on to defining functions for the different analyses required [[8]](https://www.w3schools.com/python/python_functions.asp). First is the function `printfielddata`.
 
   def printfielddata():
 
-Then a text file is opened to write the data to [9](https://www.geeksforgeeks.org/writing-to-file-in-python/). If the files does not exist the code will create it. 
+Then a text file is opened to write the data to [[9]](https://www.geeksforgeeks.org/writing-to-file-in-python/). If the files does not exist the code will create it. 
     
     with open('summary.txt', 'w') as f:
     
-There is then a `for` loop to iterate through the columns of the data[10](https://www.w3schools.com/python/python_for_loops.asp). An `if` statement [11](https://www.w3schools.com/python/python_conditions.asp) is used to ignore the "Species" column as this data is not numerical.
+There is then a `for` loop to iterate through the columns of the data [[10]](https://www.w3schools.com/python/python_for_loops.asp). An `if` statement [[11]](https://www.w3schools.com/python/python_conditions.asp) is used to ignore the "Species" column as this data is not numerical.
         
         for name in datafields:
             if name != species:
             
  The code then completes the following calculations for each of the variables:
- * Finds the minimum value [12](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.min.html)
- * Finds the maximum value [13](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.max.html)
- * Calculates the mean [14](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.mean.html)
- * Calculates the median [15](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.median.html)
- * Calculates the mode [16](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.mode.html)
+ * Finds the minimum value [[12]](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.min.html)
+ * Finds the maximum value [[13]](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.max.html)
+ * Calculates the mean [[14]](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.mean.html)
+ * Calculates the median [[15]](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.median.html)
+ * Calculates the mode [[16]](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.mode.html)
 
-The calculated values as stored as strings [17](https://realpython.com/python-strings/) and written to the text file using `f.writelines`[18](https://www.pythontutorial.net/python-basics/python-write-text-file/). To get a neat layout `\n` is used to create new lines [18](https://www.w3schools.com/python/gloss_python_escape_characters.asp).  The data for each column or variable is separated by a header printed to the file using `f.write`. F strings [20](https://realpython.com/python-f-strings/) have been used to create the text for the file.
+The calculated values as stored as strings [[17]](https://realpython.com/python-strings/) and written to the text file using `f.writelines`[[18]](https://www.pythontutorial.net/python-basics/python-write-text-file/). To get a neat layout `\n` is used to create new lines [[19]](https://www.w3schools.com/python/gloss_python_escape_characters.asp).  The data for each column or variable is separated by a header printed to the file using `f.write`. F strings [[20]](https://realpython.com/python-f-strings/) have been used to create the text for the file.
 
 
                 header = (f'The column title is {name}')
@@ -123,7 +123,7 @@ The calculated values as stored as strings [17](https://realpython.com/python-st
                 averages = (f'\nMean: {mean} \nMedian: {median} \nMode: {mode}\n\n')
                 f.writelines(averages)              
    
-I have used an `else` statement to complete the analysis of the "Species" data [11](https://www.w3schools.com/python/python_conditions.asp). Here I have separated out the data by species [20](https://pandas.pydata.org/pandas-docs/stable/getting_started/intro_tutorials/03_subset_data.html) and then used `describe` to analyse it [21](https://pandas.pydata.org/pandas-docs/dev/reference/api/pandas.Series.describe.html#pandas.Series.describe). To write to the file the data needed to be in string format so I used 'to_string' for the conversion [22](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.to_string.html). 'header=True' and `index=True` ensures the header and row labels are printed. 
+I have used an `else` statement to complete the analysis of the "Species" data [[11]](https://www.w3schools.com/python/python_conditions.asp). Here I have separated out the data by species [[21]](https://pandas.pydata.org/pandas-docs/stable/getting_started/intro_tutorials/03_subset_data.html) and then used `describe` to analyse it [[22]](https://pandas.pydata.org/pandas-docs/dev/reference/api/pandas.Series.describe.html#pandas.Series.describe). To write to the file the data needed to be in string format so I used 'to_string' for the conversion [[23]](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.to_string.html). 'header=True' and `index=True` ensures the header and row labels are printed. 
    
             else:
                 for x in irisspecies:
