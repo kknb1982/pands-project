@@ -208,9 +208,3 @@ To create the scatterplots of the variable pairs I used the `pairplot` graph in 
 27. matplotlib.pyplot.xlabel — Matplotlib 3.7.1 documentation [Internet]. [cited 2023 May 8]. Available from: https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.xlabel.html
 28. matplotlib.pyplot.title — Matplotlib 3.7.1 documentation [Internet]. [cited 2023 May 8]. Available from: https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.title.html
 29. seaborn.pairplot — seaborn 0.12.2 documentation [Internet]. [cited 2023 Apr 22]. Available from: https://seaborn.pydata.org/generated/seaborn.pairplot.html
-
-
-
-
-Matplotlib axis titles
-pairplot
