@@ -138,7 +138,7 @@ Once all the operations are complete the file is closed.
                 f.close()
                 
 ### 3.2.6 Create simple histograms
-The next function `createsimplehist` uses the `matplotlib` histogram function to create a simple histogram of each of the variables of the dataset. `plt.savefig` is used to save the plot to the repository rather than outputting it to the terminal. The output is available in the file [combinedhist.png](https://github.com/kknb1982/pands-project/blob/main/combinedhist.png).
+The next function `createsimplehist` uses the `matplotlib` histogram function to create a simple histogram of each of the variables of the dataset [[24]](https://matplotlib.org/stable/gallery/statistics/hist.html). `plt.savefig` is used to save the plot to the repository rather than outputting it to the terminal [[25]]. The output is available in the file [combinedhist.png](https://github.com/kknb1982/pands-project/blob/main/combinedhist.png).
 
   def createsimplehist():
      dataf.hist()
@@ -146,13 +146,13 @@ The next function `createsimplehist` uses the `matplotlib` histogram function to
      plt.close()
 
 ### 3.2.7 Create histograms coloured by species
-Without being able to visually separate the different species of iris in the histogram plots it is difficult to tell which, if an, variables offer discrimination. Therefore, I used Seaborn to create further histograms coloured by "species". I used a `for` loop to create each histogram in turn and an `if` statement to ensure graphs for all variables bar the species were created.
+Without being able to visually separate the different species of iris in the histogram plots it is difficult to tell which, if any, variables offer discrimination. Therefore, I used Seaborn [[4]](https://seaborn.pydata.org/) to create further histograms coloured by "species". I used a `for` loop to create each histogram in turn [[10]](https://www.w3schools.com/python/python_for_loops.asp) and an `if` statement to ensure graphs for all variables bar the species were created [[11](https://www.w3schools.com/python/python_conditions.asp).
 
   def gethisto():
     for name in datafields:
         if name != species:
  
- In order to create the histogram I used Seaborn's `histplot` method with the following options:
+ In order to create the histogram I used Seaborn's `histplot` method with the following options [[26]](https://seaborn.pydata.org/generated/seaborn.histplot.html?highlight=histplot):
  * data source of the data as the dataframe, 
  * x- axis data as the variable being called in the `for` loop, 
  * hue (which colours the plot) by the species
@@ -160,7 +160,7 @@ Without being able to visually separate the different species of iris in the his
  
             sns.histplot(data=dataf, x=name, hue=species, binwidth=0.1)
         
-This plot was then updated with an x-axis label and title.
+This plot was then updated with an x-axis label [[27]](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.xlabel.html#matplotlib.pyplot.xlabel) and title [[28]](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.title.html).
  
             plt.xlabel(f'{name} in cm')
             plt.title(f'Histogram of the relevant frequency of \n{name.lower()} highlighted by iris species')
@@ -171,13 +171,12 @@ The resulting figure was then saved and the plot closed.
             plt.close()
 
 ### 3.2.8 Create scatterplots
-To create the scatterplots of the variable pairs I used the `pairplot` graph in Seaborn.  This easy to create graphic automatically plots each variable pair as a scatter plot and a layered Kernel Density Estimate (KDE) for the univariate plots. In order to create greater alignment with the earlier plots I added the option `diag_kind="hist"` to change this univariate plot to a histogram.
+To create the scatterplots of the variable pairs I used the `pairplot` graph in Seaborn [[29]].  This easy to create graphic automatically plots each variable pair as a scatter plot and a layered Kernel Density Estimate (KDE) for the univariate plots. In order to create greater alignment with the earlier plots I added the option `diag_kind="hist"` to change this univariate plot to a histogram.
 
-   def createpairplot():
+    def createpairplot():
      sns.pairplot(dataf, hue=species, diag_kind="hist")
      plt.savefig('pairplot.png')
      plt.close()
-    
     
 # 4. References
 1. Categorical data — pandas 2.0.1 documentation [Internet]. [cited 2023 Apr 24]. Available from: https://pandas.pydata.org/pandas-docs/stable/user_guide/categorical.html
@@ -203,11 +202,15 @@ To create the scatterplots of the variable pairs I used the `pairplot` graph in 
 21. How do I select a subset of a DataFrame? — pandas 2.0.0 documentation [Internet]. [cited 2023 Apr 22]. Available from: https://pandas.pydata.org/pandas-docs/stable/getting_started/intro_tutorials/03_subset_data.html
 22. pandas.Series.describe — pandas 2.1.0.dev0+735.gf1126610ab documentation [Internet]. [cited 2023 May 8]. Available from: https://pandas.pydata.org/pandas-docs/dev/reference/api/pandas.Series.describe.html#pandas.Series.describe
 23. pandas.DataFrame.to_string — pandas 2.0.1 documentation [Internet]. [cited 2023 May 8]. Available from: https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.to_string.html
+24. Histograms — Matplotlib 3.7.1 documentation [Internet]. [cited 2023 May 8]. Available from: https://matplotlib.org/stable/gallery/statistics/hist.html
+25. matplotlib.pyplot.savefig — Matplotlib 3.7.1 documentation [Internet]. [cited 2023 May 8]. Available from: https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.savefig.html#matplotlib.pyplot.savefig
+26. seaborn.histplot — seaborn 0.12.2 documentation [Internet]. [cited 2023 May 8]. Available from: https://seaborn.pydata.org/generated/seaborn.histplot.html?highlight=histplot
+27. matplotlib.pyplot.xlabel — Matplotlib 3.7.1 documentation [Internet]. [cited 2023 May 8]. Available from: https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.xlabel.html
+28. matplotlib.pyplot.title — Matplotlib 3.7.1 documentation [Internet]. [cited 2023 May 8]. Available from: https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.title.html
+29. seaborn.pairplot — seaborn 0.12.2 documentation [Internet]. [cited 2023 Apr 22]. Available from: https://seaborn.pydata.org/generated/seaborn.pairplot.html
 
-separate data by species
-to_string for dataframes
-Matplotlib histogram
-plt.savefig
-sea born histplot
+
+
+
 Matplotlib axis titles
 pairplot
