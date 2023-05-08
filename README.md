@@ -14,6 +14,12 @@ This Readme gives an overview of the Python code used to create visual analyses 
 |[3.2](https://github.com/kknb1982/pands-project/blob/main/README.md#32-the-code)|The code |
 |[3.2.1](https://github.com/kknb1982/pands-project#321-import-the-libraries-needed)|Import the libraries needed|
 |[3.2.2](https://github.com/kknb1982/pands-project#322-create-the-variable-names)|Create the variable names |
+|[3.2.3](https://github.com/kknb1982/pands-project/blob/main/README.md#323-import-fishers-iris-dataset-to-a-dataframe)|Import Fishers Iris Dataset to a DataFrame|
+|[3.2.4](https://github.com/kknb1982/pands-project/blob/main/README.md#324-finds-the-names-of-the-iris-species)|Finds the names of the iris species |
+|[3.2.5]()|Defines a function to create a text file with summary data about the variable|
+|[3.2.6](https://github.com/kknb1982/pands-project/blob/main/README.md#326-create-simple-histograms)|Create simple histograms |
+|[3.2.7](https://github.com/kknb1982/pands-project/blob/main/README.md#327-create-histograms-coloured-by-species)|Create histograms coloured by species |
+|[3.2.8](https://github.com/kknb1982/pands-project/blob/main/README.md#328-create-scatterplots)|Create scatterplots|
 |[4](https://github.com/kknb1982/pands-project/blob/main/README.md#4-references)| References| 
 
 # 1. How to run the code
@@ -81,7 +87,7 @@ Throughout the analysis it is useful to interrogate the data and plot it for eac
 
   irisspecies = dataf.Species.unique()
 
-### 3.2.5 Defines a function to creates a text file with summary data about the variable
+### 3.2.5 Defines a function to create a text file with summary data about the variable
 The code now moves on to defining functions for the different analyses required. First is the function `printfielddata`.
 
   def printfielddata():
