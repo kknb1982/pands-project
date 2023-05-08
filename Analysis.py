@@ -15,3 +15,6 @@ gethisto()
 
 # Creates scatter plot for two variables
 createpairplot()
+
+# Creates boxplot
+getboxplots()
