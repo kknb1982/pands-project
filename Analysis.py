@@ -18,3 +18,6 @@ createpairplot()
 
 # Creates boxplot
 getboxplots()
+
+# Creates violinplots
+getviolinplots()
