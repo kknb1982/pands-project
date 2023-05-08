@@ -53,10 +53,10 @@ The final module creates scatter plot for two variables.
 ## 3.2 The code
 ### 3.2.1 Import the libraries needed
 In order to analyse the data a few libraries are needed:
-* `Pandas` to import the dataset and create the dataframe. 
-* `Numpy` to create the statistical analyses of the data and support the creation of the plots. 
-* `Matplotlib` to create the simple histograms without colouring by species. 
-* `Seaborn` to create the coloured histograms and scatterplots.
+* `Pandas` to import the dataset and create the dataframe [1](https://pandas.pydata.org/pandas-docs/stable/user_guide/categorical.html). 
+* `Numpy` to create the statistical analyses of the data and support the creation of the plots [2](https://numpy.org/). 
+* `Matplotlib` to create the simple histograms without colouring by species [3](https://matplotlib.org/). 
+* `Seaborn` to create the coloured histograms and scatterplots [4](https://seaborn.pydata.org/index.html).
 
 The libraries have been imported using aliases to make the code more streamlined. 
 
@@ -66,7 +66,7 @@ The libraries have been imported using aliases to make the code more streamlined
   import seaborn as sns 
 
 ### 3.2.2 Create the variable names
-Fisher's Iris Dataset is published at https://archive.ics.uci.edu/ml/datasets/Iris/. The data is published without variable names and therefore, these need to be created to be used in our dataframe and code.
+Fisher's Iris Dataset is published at https://archive.ics.uci.edu/ml/datasets/Iris/ [5]. The data is published without variable names and therefore, these need to be created to be used in our dataframe and code.
 
   sepallen = "Sepal Length"
   sepalwid = "Sepal Width"
@@ -77,18 +77,18 @@ Fisher's Iris Dataset is published at https://archive.ics.uci.edu/ml/datasets/Ir
   datafields = sepallen, sepalwid, petallen, petalwid, species
 
 ### 3.2.3 Import Fishers Iris Dataset to a DataFrame
-The code needs to import the Fisher's Iris Dataset and create a `DataFrame` using Pandas.
+The code needs to import the Fisher's Iris Dataset and create a `DataFrame` using Pandas [6](https://pandas.pydata.org/pandas-docs/stable/user_guide/io.html#csv-text-files).
 
   dataf = pd.read_csv("https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data", 
                    names = datafields)
 
 ### 3.2.4 Finds the names of the iris species
-Throughout the analysis it is useful to interrogate the data and plot it for each species separately. Therefore, we use the `Pandas` `unique()` method on teh column "species" to find out the unique values in this column. 
+Throughout the analysis it is useful to interrogate the data and plot it for each species separately. Therefore, we use the `Pandas` `unique()` method on the column "species" to find out the unique values in this column [7](https://www.geeksforgeeks.org/get-unique-values-from-a-column-in-pandas-dataframe/). 
 
   irisspecies = dataf.Species.unique()
 
 ### 3.2.5 Defines a function to create a text file with summary data about the variable
-The code now moves on to defining functions for the different analyses required. First is the function `printfielddata`.
+The code now moves on to defining functions for the different analyses required [8](https://www.w3schools.com/python/python_functions.asp). First is the function `printfielddata`.
 
   def printfielddata():
 
@@ -173,21 +173,21 @@ The resulting figure was then saved and the plot closed.
 ### 3.2.8 Create scatterplots
 To create the scatterplots of the variable pairs I used the `pairplot` graph in Seaborn.  This easy to create graphic automatically plots each variable pair as a scatter plot and a layered Kernel Density Estimate (KDE) for the univariate plots. In order to create greater alignment with the earlier plots I added the option `diag_kind="hist"` to change this univariate plot to a histogram.
 
-  def createpairplot():
+   def createpairplot():
      sns.pairplot(dataf, hue=species, diag_kind="hist")
      plt.savefig('pairplot.png')
      plt.close()
     
     
 # 4. References
-Pandas
-Numpy
-Matplotlib
-Seaborn
-UCI
-Import data to dataframe
-Pandas unique values
-Define function
+1. Categorical data — pandas 2.0.1 documentation [Internet]. [cited 2023 Apr 24]. Available from: https://pandas.pydata.org/pandas-docs/stable/user_guide/categorical.html
+2. NumPy [Internet]. [cited 2023 May 4]. Available from: https://numpy.org/
+3. Matplotlib — Visualization with Python [Internet]. [cited 2023 Apr 18]. Available from: https://matplotlib.org/
+4. Waskom M. seaborn: statistical data visualization. J Open Source Softw. 2021 Apr 6;6(60):3021. 
+5. UCI Machine Learning Repository: Iris Data Set [Internet]. [cited 2023 Apr 18]. Available from: https://archive.ics.uci.edu/ml/datasets/iris
+6. IO tools (text, CSV, HDF5, …) — pandas 2.0.0 documentation [Internet]. [cited 2023 Apr 18]. Available from: https://pandas.pydata.org/pandas-docs/stable/user_guide/io.html#csv-text-files
+7. Get unique values from a column in Pandas DataFrame - GeeksforGeeks [Internet]. [cited 2023 May 8]. Available from: https://www.geeksforgeeks.org/get-unique-values-from-a-column-in-pandas-dataframe/
+8. Python Functions [Internet]. [cited 2023 May 8]. Available from: https://www.w3schools.com/python/python_functions.asp
 Open file to write to
 For loop
 If statements
