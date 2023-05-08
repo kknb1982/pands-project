@@ -1,4 +1,4 @@
-# Pands-project
+# Pands-project: Readme
 # Introduction
 This Readme gives an overview of the Python code used to create visual analyses of Fisher's Iris Dataset.  The journey towards this final code and an overview of the dataset is described in [Documentation.ipynb](https://github.com/kknb1982/pands-project/blob/main/Documentation.ipynb). 
 
@@ -71,11 +71,15 @@ Fisher's Iris Dataset is published at https://archive.ics.uci.edu/ml/datasets/Ir
   datafields = sepallen, sepalwid, petallen, petalwid, species
 
 ### 3.2.3 Import Fishers Iris Dataset to a DataFrame
-dataf = pd.read_csv("https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data", 
+The code needs to import the Fisher's Iris Dataset and create a `DataFrame` using Pandas.
+
+  dataf = pd.read_csv("https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data", 
                    names = datafields)
 
-# Finds the names of the iris species
-irisspecies = dataf.Species.unique()
+### 3.2.4 Finds the names of the iris species
+Throughout the analysis it is useful to interrogate the data and plot it for each species separately. Therefore, we use the `Pandas` `unique()` method on teh column "species" to find out the unique values in this column. 
+
+  irisspecies = dataf.Species.unique()
 
 # Defines a function to creates a text file with summary data about the variable
 def printfielddata():
@@ -128,3 +132,6 @@ Pandas
 Numpy
 Matplotlib
 Seaborn
+UCI
+Import data to dataframe
+Pandas unique values
