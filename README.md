@@ -7,19 +7,19 @@ This Readme gives an overview of the Python code used to create visual analyses 
 |-------|-------|
 |[1](https://github.com/kknb1982/pands-project/blob/main/README.md#1-how-to-run-the-code) |How to run the code |
 |[2](https://github.com/kknb1982/pands-project/blob/main/README.md#2-analysispy) | Analysis.py|
-|[2.1](https://github.com/kknb1982/pands-project/blob/main/README.md#21-overview-of-analysispy)| Overview of analysis.py |
-|[2.2](https://github.com/kknb1982/pands-project/blob/main/README.md#22-the-code)| The code |
+| [2.1](https://github.com/kknb1982/pands-project/blob/main/README.md#21-overview-of-analysispy)| Overview of analysis.py |
+| [2.2](https://github.com/kknb1982/pands-project/blob/main/README.md#22-the-code)| The code |
 |[3](https://github.com/kknb1982/pands-project/blob/main/README.md#3-variablemodulepy) | Variablemodule.py|
-|[3.1](https://github.com/kknb1982/pands-project/blob/main/README.md#31-overview-of-variable-modulepy)| Overview of variable module.py|
-|[3.2](https://github.com/kknb1982/pands-project/blob/main/README.md#32-the-code)|The code |
-|[3.2.1](https://github.com/kknb1982/pands-project#321-import-the-libraries-needed)|Import the libraries needed|
-|[3.2.2](https://github.com/kknb1982/pands-project#322-create-the-variable-names)|Create the variable names |
-|[3.2.3](https://github.com/kknb1982/pands-project/blob/main/README.md#323-import-fishers-iris-dataset-to-a-dataframe)|Import Fishers Iris Dataset to a DataFrame|
-|[3.2.4](https://github.com/kknb1982/pands-project/blob/main/README.md#324-finds-the-names-of-the-iris-species)|Finds the names of the iris species |
-|[3.2.5]()|Defines a function to create a text file with summary data about the variable|
-|[3.2.6](https://github.com/kknb1982/pands-project/blob/main/README.md#326-create-simple-histograms)|Create simple histograms |
-|[3.2.7](https://github.com/kknb1982/pands-project/blob/main/README.md#327-create-histograms-coloured-by-species)|Create histograms coloured by species |
-|[3.2.8](https://github.com/kknb1982/pands-project/blob/main/README.md#328-create-scatterplots)|Create scatterplots|
+| [3.1](https://github.com/kknb1982/pands-project/blob/main/README.md#31-overview-of-variable-modulepy)| Overview of variable module.py|
+| [3.2](https://github.com/kknb1982/pands-project/blob/main/README.md#32-the-code)|The code |
+|  [3.2.1](https://github.com/kknb1982/pands-project#321-import-the-libraries-needed)|Import the libraries needed|
+|  [3.2.2](https://github.com/kknb1982/pands-project#322-create-the-variable-names)|Create the variable names |
+|  [3.2.3](https://github.com/kknb1982/pands-project/blob/main/README.md#323-import-fishers-iris-dataset-to-a-dataframe)|Import Fishers Iris Dataset to a DataFrame|
+|  [3.2.4](https://github.com/kknb1982/pands-project/blob/main/README.md#324-finds-the-names-of-the-iris-species)|Finds the names of the iris species |
+|  [3.2.5]()|Defines a function to create a text file with summary data about the variable|
+|  [3.2.6](https://github.com/kknb1982/pands-project/blob/main/README.md#326-create-simple-histograms)|Create simple histograms |
+|  [3.2.7](https://github.com/kknb1982/pands-project/blob/main/README.md#327-create-histograms-coloured-by-species)|Create histograms coloured by species |
+|  [3.2.8](https://github.com/kknb1982/pands-project/blob/main/README.md#328-create-scatterplots)|Create scatterplots|
 |[4](https://github.com/kknb1982/pands-project/blob/main/README.md#4-references)| References| 
 
 # 1. How to run the code
