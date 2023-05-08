@@ -74,3 +74,10 @@ def getboxplots():
     dataf.boxplot(by=species, figsize=(11,11))
     plt.savefig('boxplot.png')
     plt.close()
+
+def getviolinplots():
+    for name in datafields:
+        if name != species:
+            sns.violinplot(data=dataf, x=species, y=name)
+            plt.savefig(name+ 'violin.png')
+            plt.close()
