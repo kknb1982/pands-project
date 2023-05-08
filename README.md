@@ -81,14 +81,30 @@ Throughout the analysis it is useful to interrogate the data and plot it for eac
 
   irisspecies = dataf.Species.unique()
 
-# Defines a function to creates a text file with summary data about the variable
-def printfielddata():
-    # Opens a text file called summary.txt to write data to, if it does not exist it will create it
+### 3.2.5 Defines a function to creates a text file with summary data about the variable
+The code now moves on to defining functions for the different analyses required. First is the function `printfielddata`.
+
+  def printfielddata():
+
+Then a text file is opened to write the data to. If the files does not exist the code will create it. 
+    
     with open('summary.txt', 'w') as f:
-        # iterate through the columns of the data
+    
+There is then a `for` loop to iterate through the columns of the data. An `if` statement is used to ignore the "Species" column as this data is not numerical.
+        
         for name in datafields:
-            # Ignore species at this is not numerical data
             if name != species:
+            
+ The code then completes the following calculations for each of the variables:
+ * Finds the minimum value
+ * Finds the maximum value
+ * Calculates the mean
+ * Calculates the median
+ * Calculates the mode
+
+The calculated values as stored as strings and written to the text file using `f.writelines`. To get a neat layout `\n` is used to create new lines.  The data for each column or variable is separated by a header printed to the file using `f.write`
+
+
                 header = (f'The column title is {name}')
                 f.write(header)
                 min = str(dataf[name].min())
@@ -100,6 +116,9 @@ def printfielddata():
                 mode = str(dataf[name].mode())
                 averages = (f'\nMean: {mean} \nMedian: {median} \nMode: {mode}\n\n')
                 f.writelines(averages)              
+   
+   I have used an `else` statement to complete the analysis of the "Species" data. Here I have separated out the data by species and then used `decribe` to analyst it. To write to the file the data needed to be in string format so I used 'to_string' for the conversion. 'header=True' and `index=True` ensures the header and row labels are printed. 
+   
             else:
                 for x in irisspecies:
                     f.writelines(f'\n{x} \n')
@@ -107,8 +126,11 @@ def printfielddata():
                     describex = x.describe()
                     stringx = describex.to_string(header=True, index =True)
                     f.writelines(stringx) 
-                f.close()
+                    
+Once all the operations are complete the file is closed.
 
+                f.close()
+### 3.2.6 
 def createsimplehist():
     dataf.hist()
     plt.savefig('combinedhist.png')
@@ -135,3 +157,15 @@ Seaborn
 UCI
 Import data to dataframe
 Pandas unique values
+Define function
+Open file to write to
+For loop
+If statements
+min and max of a dataframe
+average of a dataframe
+\n 
+f.write and f.writelines
+Convert to string
+else
+separate data by species
+to_string for dataframes
