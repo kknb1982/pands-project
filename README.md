@@ -20,6 +20,8 @@ This Readme gives an overview of the Python code used to create visual analyses 
 |  [3.2.6](https://github.com/kknb1982/pands-project/blob/main/README.md#326-create-simple-histograms)|Create simple histograms |
 |  [3.2.7](https://github.com/kknb1982/pands-project/blob/main/README.md#327-create-histograms-coloured-by-species)|Create histograms coloured by species |
 |  [3.2.8](https://github.com/kknb1982/pands-project/blob/main/README.md#328-create-scatterplots)|Create scatterplots|
+|[3.2.9]|Create boxplots|
+|[3.2.10]|Create violinplots|
 |[4](https://github.com/kknb1982/pands-project/blob/main/README.md#4-references)| References| 
 
 # 1. How to run the code
@@ -177,7 +179,21 @@ To create the scatterplots of the variable pairs I used the `pairplot` graph in 
      sns.pairplot(dataf, hue=species, diag_kind="hist")
      plt.savefig('pairplot.png')
      plt.close()
+     
+### 3.2.9 Create boxplots
+    def getboxplots():
+    dataf.boxplot(by=species, figsize=(11,11))
+    plt.savefig('boxplot.png')
+    plt.close()
     
+### 3.2.10 Create violinplots
+def getviolinplots():
+    for name in datafields:
+        if name != species:
+            sns.violinplot(data=dataf, x=species, y=name)
+            plt.savefig(name+ 'violin.png')
+            plt.close()
+
 # 4. References
 1. Categorical data — pandas 2.0.1 documentation [Internet]. [cited 2023 Apr 24]. Available from: https://pandas.pydata.org/pandas-docs/stable/user_guide/categorical.html
 2. NumPy [Internet]. [cited 2023 May 4]. Available from: https://numpy.org/
