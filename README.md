@@ -92,23 +92,23 @@ The code now moves on to defining functions for the different analyses required 
 
   def printfielddata():
 
-Then a text file is opened to write the data to. If the files does not exist the code will create it. 
+Then a text file is opened to write the data to [9](https://www.geeksforgeeks.org/writing-to-file-in-python/). If the files does not exist the code will create it. 
     
     with open('summary.txt', 'w') as f:
     
-There is then a `for` loop to iterate through the columns of the data. An `if` statement is used to ignore the "Species" column as this data is not numerical.
+There is then a `for` loop to iterate through the columns of the data[10](https://www.w3schools.com/python/python_for_loops.asp). An `if` statement [11](https://www.w3schools.com/python/python_conditions.asp) is used to ignore the "Species" column as this data is not numerical.
         
         for name in datafields:
             if name != species:
             
  The code then completes the following calculations for each of the variables:
- * Finds the minimum value
- * Finds the maximum value
- * Calculates the mean
- * Calculates the median
- * Calculates the mode
+ * Finds the minimum value [12](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.min.html)
+ * Finds the maximum value [13](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.max.html)
+ * Calculates the mean [14](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.mean.html)
+ * Calculates the median [15](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.median.html)
+ * Calculates the mode [16](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.mode.html)
 
-The calculated values as stored as strings and written to the text file using `f.writelines`. To get a neat layout `\n` is used to create new lines.  The data for each column or variable is separated by a header printed to the file using `f.write`
+The calculated values as stored as strings [17](https://realpython.com/python-strings/) and written to the text file using `f.writelines`[18](https://www.pythontutorial.net/python-basics/python-write-text-file/). To get a neat layout `\n` is used to create new lines [18](https://www.w3schools.com/python/gloss_python_escape_characters.asp).  The data for each column or variable is separated by a header printed to the file using `f.write`. F strings [20](https://realpython.com/python-f-strings/) have been used to create the text for the file.
 
 
                 header = (f'The column title is {name}')
@@ -123,7 +123,7 @@ The calculated values as stored as strings and written to the text file using `f
                 averages = (f'\nMean: {mean} \nMedian: {median} \nMode: {mode}\n\n')
                 f.writelines(averages)              
    
-I have used an `else` statement to complete the analysis of the "Species" data. Here I have separated out the data by species and then used `decribe` to analyst it. To write to the file the data needed to be in string format so I used 'to_string' for the conversion. 'header=True' and `index=True` ensures the header and row labels are printed. 
+I have used an `else` statement to complete the analysis of the "Species" data [11](https://www.w3schools.com/python/python_conditions.asp). Here I have separated out the data by species [20](https://pandas.pydata.org/pandas-docs/stable/getting_started/intro_tutorials/03_subset_data.html) and then used `describe` to analyse it [21](https://pandas.pydata.org/pandas-docs/dev/reference/api/pandas.Series.describe.html#pandas.Series.describe). To write to the file the data needed to be in string format so I used 'to_string' for the conversion [22](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.to_string.html). 'header=True' and `index=True` ensures the header and row labels are printed. 
    
             else:
                 for x in irisspecies:
@@ -188,15 +188,22 @@ To create the scatterplots of the variable pairs I used the `pairplot` graph in 
 6. IO tools (text, CSV, HDF5, …) — pandas 2.0.0 documentation [Internet]. [cited 2023 Apr 18]. Available from: https://pandas.pydata.org/pandas-docs/stable/user_guide/io.html#csv-text-files
 7. Get unique values from a column in Pandas DataFrame - GeeksforGeeks [Internet]. [cited 2023 May 8]. Available from: https://www.geeksforgeeks.org/get-unique-values-from-a-column-in-pandas-dataframe/
 8. Python Functions [Internet]. [cited 2023 May 8]. Available from: https://www.w3schools.com/python/python_functions.asp
-Open file to write to
-For loop
-If statements
-min and max of a dataframe
-average of a dataframe
-\n 
-f.write and f.writelines
-Convert to string
-else
+9. Writing to file in Python - GeeksforGeeks [Internet]. [cited 2023 May 8]. Available from: https://www.geeksforgeeks.org/writing-to-file-in-python/
+10. Python For Loops [Internet]. [cited 2023 May 8]. Available from: https://www.w3schools.com/python/python_for_loops.asp
+11. Python Conditions [Internet]. [cited 2023 May 8]. Available from: https://www.w3schools.com/python/python_conditions.asp
+12. pandas.DataFrame.min — pandas 2.0.1 documentation [Internet]. [cited 2023 May 8]. Available from: https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.min.html
+13. pandas.DataFrame.max — pandas 2.0.1 documentation [Internet]. [cited 2023 May 8]. Available from: https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.max.html
+14. pandas.DataFrame.mean — pandas 2.0.1 documentation [Internet]. [cited 2023 May 8]. Available from: https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.mean.html
+15. pandas.DataFrame.median — pandas 2.0.1 documentation [Internet]. [cited 2023 May 8]. Available from: https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.median.html
+16. pandas.DataFrame.mode — pandas 2.0.1 documentation [Internet]. [cited 2023 May 8]. Available from: https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.mode.html
+17. Strings and Character Data in Python – Real Python [Internet]. [cited 2023 May 8]. Available from: https://realpython.com/python-strings/
+18. How to Write to Text File in Python [Internet]. [cited 2023 May 8]. Available from: https://www.pythontutorial.net/python-basics/python-write-text-file/
+19. Python Escape Characters [Internet]. [cited 2023 May 8]. Available from: https://www.w3schools.com/python/gloss_python_escape_characters.asp
+20. Python 3’s f-Strings: An Improved String Formatting Syntax (Guide) – Real Python [Internet]. [cited 2023 May 8]. Available from: https://realpython.com/python-f-strings/
+21. How do I select a subset of a DataFrame? — pandas 2.0.0 documentation [Internet]. [cited 2023 Apr 22]. Available from: https://pandas.pydata.org/pandas-docs/stable/getting_started/intro_tutorials/03_subset_data.html
+22. pandas.Series.describe — pandas 2.1.0.dev0+735.gf1126610ab documentation [Internet]. [cited 2023 May 8]. Available from: https://pandas.pydata.org/pandas-docs/dev/reference/api/pandas.Series.describe.html#pandas.Series.describe
+23. pandas.DataFrame.to_string — pandas 2.0.1 documentation [Internet]. [cited 2023 May 8]. Available from: https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.to_string.html
+
 separate data by species
 to_string for dataframes
 Matplotlib histogram
