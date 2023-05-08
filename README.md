@@ -123,7 +123,7 @@ The calculated values as stored as strings and written to the text file using `f
                 averages = (f'\nMean: {mean} \nMedian: {median} \nMode: {mode}\n\n')
                 f.writelines(averages)              
    
-   I have used an `else` statement to complete the analysis of the "Species" data. Here I have separated out the data by species and then used `decribe` to analyst it. To write to the file the data needed to be in string format so I used 'to_string' for the conversion. 'header=True' and `index=True` ensures the header and row labels are printed. 
+I have used an `else` statement to complete the analysis of the "Species" data. Here I have separated out the data by species and then used `decribe` to analyst it. To write to the file the data needed to be in string format so I used 'to_string' for the conversion. 'header=True' and `index=True` ensures the header and row labels are printed. 
    
             else:
                 for x in irisspecies:
@@ -146,20 +146,37 @@ The next function `createsimplehist` uses the `matplotlib` histogram function to
      plt.close()
 
 ### 3.2.7 Create histograms coloured by species
-def gethisto():
+Without being able to visually separate the different species of iris in the histogram plots it is difficult to tell which, if an, variables offer discrimination. Therefore, I used Seaborn to create further histograms coloured by "species". I used a `for` loop to create each histogram in turn and an `if` statement to ensure graphs for all variables bar the species were created.
+
+  def gethisto():
     for name in datafields:
         if name != species:
+ 
+ In order to create the histogram I used Seaborn's `histplot` method with the following options:
+ * data source of the data as the dataframe, 
+ * x- axis data as the variable being called in the `for` loop, 
+ * hue (which colours the plot) by the species
+ * binwidth 0.1 to force the plot to have narrow columns, otherwise the automatically generated plot has different width bars across the species and measurements.
+ 
             sns.histplot(data=dataf, x=name, hue=species, binwidth=0.1)
+        
+This plot was then updated with an x-axis label and title.
+ 
             plt.xlabel(f'{name} in cm')
             plt.title(f'Histogram of the relevant frequency of \n{name.lower()} highlighted by iris species')
+            
+The resulting figure was then saved and the plot closed.
+
             plt.savefig(name+ '.png')
             plt.close()
 
 ### 3.2.8 Create scatterplots
-def createpairplot():
-    sns.pairplot(dataf, hue=species)
-    plt.savefig('pairplot.png')
-    plt.close()
+To create the scatterplots of the variable pairs I used the `pairplot` graph in Seaborn.  This easy to create graphic automatically plots each variable pair as a scatter plot and a layered Kernel Density Estimate (KDE) for the univariate plots. In order to create greater alignment with the earlier plots I added the option `diag_kind="hist"` to change this univariate plot to a histogram.
+
+  def createpairplot():
+     sns.pairplot(dataf, hue=species, diag_kind="hist")
+     plt.savefig('pairplot.png')
+     plt.close()
     
     
 # 4. References
@@ -184,3 +201,6 @@ separate data by species
 to_string for dataframes
 Matplotlib histogram
 plt.savefig
+sea born histplot
+Matplotlib axis titles
+pairplot
