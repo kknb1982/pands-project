@@ -1,28 +1,5 @@
 # Pands-project
 # Introduction
-<<<<<<< HEAD
-This Readme gives an overview of the Python code used to create visual analyses of Fisher's Iris Dataset.  The journey towards this final code and an overview of the dataset is described in Documentation.ipynb. 
-
-# Table of contents
-|Section title|Description|
-|-------|--------|
-|How to run the code(https://github.com/kknb1982/pands-problem-sheet/edit/main/README.md#week-1---prints-out-hello-world)| week1.helloworld.py|Prints out "Hello World!"|
-|[02](https://github.com/kknb1982/pands-problem-sheet/edit/main/README.md#week-2---adds-two-user-entered-amounts-and-prints-them-in-a-readable-format)|week2.bank.py| Adds two user entered integers and ouputs them in euro and cents|
-|[03](https://github.com/kknb1982/pands-problem-sheet/edit/main/README.md#week-3---hiding-part-of-bank-account-numbers)|week3.accounts.py|Hiding part of bank account numbers|
-|[04](https://github.com/kknb1982/pands-problem-sheet/edit/main/README.md#week-4---coding-the-collatz-conjecture)|week4.collatz.py|Coding the collatz conjecture|
-|[05](https://github.com/kknb1982/pands-problem-sheet/edit/main/README.md#week-5---using-import-to-work-out-if-today-is-a-weekday)|week5.weekday.py|Outputs whether today is a weekday or not and prints out appropriate text|
-|[06](https://github.com/kknb1982/pands-problem-sheet/edit/main/README.md#week-6---finds-an-approximation-of-the-square-root-of-a-positive-float-number)|week6.sqrt.py|Finds an approximation of the square root of a positive float number|
-|[07](https://github.com/kknb1982/pands-problem-sheet/edit/main/README.md#week-7---counting-the-occurence-of-a-character-in-a-file)|week7.files.py|Counting the occurence of a character in a file|
-|[08](https://github.com/kknb1982/pands-problem-sheet/edit/main/README.md#week-8)|week8.plottask.py|Plot of the normal distribution and a cubing function|
-
-# How to run the code
-# Overview of Analysis.py
-## The code
-# Overview of Variablemodule.py
-## The code
-
-# References
-=======
 This Readme gives an overview of the Python code used to create visual analyses of Fisher's Iris Dataset.  The journey towards this final code and an overview of the dataset is described in [Documentation.ipynb](https://github.com/kknb1982/pands-project/blob/main/Documentation.ipynb). 
 
 # Table of contents
@@ -66,5 +43,86 @@ The final module creates scatter plot for two variables.
 # 3. Variablemodule.py
 ## 3.1 Overview of variable module.py
 ## 3.2 The code
+### 3.2.1 Import the libraries needed
+In order to analyse the data a few libraries are needed:
+* `Pandas` to import the dataset and create the dataframe. 
+* `Numpy` to create the statistical analyses of the data and support the creation of the plots. 
+* `Matplotlib` to create the simple histograms without colouring by species. 
+* `Seaborn` to create the coloured histograms and scatterplots.
+
+The libraries have been imported using aliases to make the code more streamlined. 
+
+  import pandas as pd 
+  import numpy as np
+  import matplotlib.pyplot as plt
+  import seaborn as sns 
+
+### 3.2.2 Create the variable names
+Fisher's Iris Dataset is published at https://archive.ics.uci.edu/ml/datasets/Iris/. The data is published without variable names and therefore, these need to be created to be used in our dataframe and code.
+
+  sepallen = "Sepal Length"
+  sepalwid = "Sepal Width"
+  petallen = "Petal Length"
+  petalwid = "Petal Width"
+  species = "Species"
+
+  datafields = sepallen, sepalwid, petallen, petalwid, species
+
+### 3.2.3 Import Fishers Iris Dataset to a DataFrame
+dataf = pd.read_csv("https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data", 
+                   names = datafields)
+
+# Finds the names of the iris species
+irisspecies = dataf.Species.unique()
+
+# Defines a function to creates a text file with summary data about the variable
+def printfielddata():
+    # Opens a text file called summary.txt to write data to, if it does not exist it will create it
+    with open('summary.txt', 'w') as f:
+        # iterate through the columns of the data
+        for name in datafields:
+            # Ignore species at this is not numerical data
+            if name != species:
+                header = (f'The column title is {name}')
+                f.write(header)
+                min = str(dataf[name].min())
+                max = str(dataf[name].max())
+                range = (f'\nThe minimum values is: {min} \nThe maximum value is: {max}')
+                f.writelines(range)
+                mean = str(dataf[name].mean())
+                median = str(dataf[name].median())
+                mode = str(dataf[name].mode())
+                averages = (f'\nMean: {mean} \nMedian: {median} \nMode: {mode}\n\n')
+                f.writelines(averages)              
+            else:
+                for x in irisspecies:
+                    f.writelines(f'\n{x} \n')
+                    x = dataf[dataf["Species"] == x]
+                    describex = x.describe()
+                    stringx = describex.to_string(header=True, index =True)
+                    f.writelines(stringx) 
+                f.close()
+
+def createsimplehist():
+    dataf.hist()
+    plt.savefig('combinedhist.png')
+    plt.close()
+
+def gethisto():
+    for name in datafields:
+        if name != species:
+            sns.histplot(data=dataf, x=name, hue=species, binwidth=0.1)
+            plt.xlabel(f'{name} in cm')
+            plt.title(f'Histogram of the relevant frequency of \n{name.lower()} highlighted by iris species')
+            plt.savefig(name+ '.png')
+            plt.close()
+
+def createpairplot():
+    sns.pairplot(dataf, hue=species)
+    plt.savefig('pairplot.png')
+    plt.close()
 # 4. References
->>>>>>> 4d4da3dec6e2edb26976438cc308299e8a48f09e
+Pandas
+Numpy
+Matplotlib
+Seaborn
