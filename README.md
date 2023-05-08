@@ -130,12 +130,16 @@ The calculated values as stored as strings and written to the text file using `f
 Once all the operations are complete the file is closed.
 
                 f.close()
-### 3.2.6 
-def createsimplehist():
-    dataf.hist()
-    plt.savefig('combinedhist.png')
-    plt.close()
+                
+### 3.2.6 Create simple histograms
+The next function `createsimplehist` uses the `matplotlib` histogram function to create a simple histogram of each of the variables of the dataset. `plt.savefig` is used to save the plot to the repository rather than outputting it to the terminal. The output is available in the file [combinedhist.png](https://github.com/kknb1982/pands-project/blob/main/combinedhist.png).
 
+  def createsimplehist():
+     dataf.hist()
+     plt.savefig('combinedhist.png')
+     plt.close()
+
+### 3.2.7 Create histograms coloured by species
 def gethisto():
     for name in datafields:
         if name != species:
@@ -145,10 +149,13 @@ def gethisto():
             plt.savefig(name+ '.png')
             plt.close()
 
+### 3.2.8 Create scatterplots
 def createpairplot():
     sns.pairplot(dataf, hue=species)
     plt.savefig('pairplot.png')
     plt.close()
+    
+    
 # 4. References
 Pandas
 Numpy
@@ -169,3 +176,5 @@ Convert to string
 else
 separate data by species
 to_string for dataframes
+Matplotlib histogram
+plt.savefig
