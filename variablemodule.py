@@ -69,3 +69,8 @@ def createpairplot():
     sns.pairplot(dataf, hue=species, diag_kind="hist")
     plt.savefig('pairplot.png')
     plt.close()
+
+def getboxplots():
+    dataf.boxplot(by=species, figsize=(11,11))
+    plt.savefig('boxplot.png')
+    plt.close()
