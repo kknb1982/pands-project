@@ -66,6 +66,6 @@ def gethisto():
             plt.close()
 
 def createpairplot():
-    sns.pairplot(dataf, hue=species)
+    sns.pairplot(dataf, hue=species, diag_kind="hist")
     plt.savefig('pairplot.png')
     plt.close()
