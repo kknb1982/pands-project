@@ -3,9 +3,9 @@
 This Readme gives an overview of the Python code used to create visual analyses of Fisher's Iris Dataset.  The journey towards this final code and an overview of the dataset is described in [Documentation.ipynb](https://github.com/kknb1982/pands-project/blob/main/Documentation.ipynb). 
 
 # Table of contents
-|**Section number | Section title|
+|**Section number | Section title**|
 |-------|-------|
-|[1](https://github.com/kknb1982/pands-project/blob/main/README.md#1-how-to-run-the-code)** |How to run the code |
+|**[1](https://github.com/kknb1982/pands-project/blob/main/README.md#1-how-to-run-the-code)** |How to run the code |
 |**[2](https://github.com/kknb1982/pands-project/blob/main/README.md#2-analysispy)** | Analysis.py|
 |    [2.1](https://github.com/kknb1982/pands-project/blob/main/README.md#21-overview-of-analysispy)| Overview of analysis.py |
 |    [2.2](https://github.com/kknb1982/pands-project/blob/main/README.md#22-the-code)| The code |
@@ -20,8 +20,8 @@ This Readme gives an overview of the Python code used to create visual analyses 
 |   [3.2.6](https://github.com/kknb1982/pands-project/blob/main/README.md#326-create-simple-histograms)|Create simple histograms |
 |   [3.2.7](https://github.com/kknb1982/pands-project/blob/main/README.md#327-create-histograms-coloured-by-species)|Create histograms coloured by species |
 |   [3.2.8](https://github.com/kknb1982/pands-project/blob/main/README.md#328-create-scatterplots)|Create scatterplots|
-|   [3.2.9]|Create boxplots|
-|   [3.2.10]|Create violinplots|
+|   [3.2.9](https://github.com/kknb1982/pands-project/blob/main/README.md#329-create-boxplots)|Create boxplots|
+|   [3.2.10](https://github.com/kknb1982/pands-project/blob/main/README.md#3210-create-violinplots)|Create violinplots|
 |**[4](https://github.com/kknb1982/pands-project/blob/main/README.md#4-references)**| References| 
 
 # 1. How to run the code
