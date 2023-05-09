@@ -46,9 +46,17 @@ The next module creates simple histograms without colouring and saves them as co
 
 These histograms without colouring by species are hard to read and only show the overall spread of the data, it does not help to decide which variables actually allow identification of the species. Therefore, there is a second module `gethisto()` creating individual plots, coloured by species.
 
-The final module creates scatter plot for two variables.
+The next module creates scatter plot for the variable pairs and histograms for the univariate plots.
 
     createpairplot()
+
+The next module creates box plots to graphically show most of the statistical data from the text file.
+
+    getboxplots()
+
+The final module creates violinplots which shows the distribution of the data across the range.
+    
+    getviolinplots()
 
 # 3. Variablemodule.py
 ## 3.1 Overview of variable module.py
@@ -181,14 +189,18 @@ To create the scatterplots of the variable pairs I used the `pairplot` graph in 
      plt.close()
      
 ### 3.2.9 Create boxplots
+Boxplots are very useful for giving a visual representation of the statistical information about some data. I used the Pandas Boxplot method to create the plots [[30]](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.boxplot.html). The default figure sizing meant that the species labels overlapped making them unreadable, so I increased it to 11 by 11. Again, I used savefig [[25]](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.savefig.html#matplotlib.pyplot.savefig) to save a copy of this figure to the repository (https://github.com/kknb1982/pands-project/blob/main/boxplot.png). 
+
     def getboxplots():
     dataf.boxplot(by=species, figsize=(11,11))
     plt.savefig('boxplot.png')
     plt.close()
     
 ### 3.2.10 Create violinplots
-def getviolinplots():
-    for name in datafields:
+A violin plot shows the distribution of data in a unique way [[31]](https://chartio.com/learn/charts/violin-plot-complete-guide/). I used a `for` loop to create each violinplot in turn [[10]](https://www.w3schools.com/python/python_for_loops.asp) and an `if` statement to ensure graphs for all variables bar the species were created [[11]](https://www.w3schools.com/python/python_conditions.asp).  To create the violinplot I used Seaborn [[32]](https://seaborn.pydata.org/generated/seaborn.violinplot.html). Defining the `x` parameter as species, splits the data by species in each of the plots.
+
+   def getviolinplots():
+     for name in datafields:
         if name != species:
             sns.violinplot(data=dataf, x=species, y=name)
             plt.savefig(name+ 'violin.png')
