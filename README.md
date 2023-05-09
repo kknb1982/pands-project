@@ -3,9 +3,9 @@
 This Readme gives an overview of the Python code used to create visual analyses of Fisher's Iris Dataset.  The journey towards this final code and an overview of the dataset is described in [Documentation.ipynb](https://github.com/kknb1982/pands-project/blob/main/Documentation.ipynb). 
 
 # Table of contents
-|**Section number | Section title**|
+|**Section number** | **Section title**|
 |-------|-------|
-|**[1](https://github.com/kknb1982/pands-project/blob/main/README.md#1-how-to-run-the-code)** |How to run the code |
+|**[1](https://github.com/kknb1982/pands-project/blob/main/README.md#1-how-to-run-the-code) |How to run the code** |
 |**[2](https://github.com/kknb1982/pands-project/blob/main/README.md#2-analysispy)** | Analysis.py|
 |    [2.1](https://github.com/kknb1982/pands-project/blob/main/README.md#21-overview-of-analysispy)| Overview of analysis.py |
 |    [2.2](https://github.com/kknb1982/pands-project/blob/main/README.md#22-the-code)| The code |
