@@ -5,11 +5,11 @@ This Readme gives an overview of the Python code used to create visual analyses 
 # Table of contents
 |**Section number** | **Section title**|
 |-------|-------|
-|**[1](https://github.com/kknb1982/pands-project/blob/main/README.md#1-how-to-run-the-code) |How to run the code** |
-|**[2](https://github.com/kknb1982/pands-project/blob/main/README.md#2-analysispy)** | Analysis.py|
+|**[1](https://github.com/kknb1982/pands-project/blob/main/README.md#1-how-to-run-the-code)** |**How to run the code** |
+|**[2](https://github.com/kknb1982/pands-project/blob/main/README.md#2-analysispy)** | **Analysis.py**|
 |    [2.1](https://github.com/kknb1982/pands-project/blob/main/README.md#21-overview-of-analysispy)| Overview of analysis.py |
 |    [2.2](https://github.com/kknb1982/pands-project/blob/main/README.md#22-the-code)| The code |
-|**[3](https://github.com/kknb1982/pands-project/blob/main/README.md#3-variablemodulepy)**| Variablemodule.py|
+|**[3](https://github.com/kknb1982/pands-project/blob/main/README.md#3-variablemodulepy)**| **Variablemodule.py**|
 |  [3.1](https://github.com/kknb1982/pands-project/blob/main/README.md#31-overview-of-variable-modulepy)| Overview of variable module.py|
 |  [3.2](https://github.com/kknb1982/pands-project/blob/main/README.md#32-the-code)|The code |
 |   [3.2.1](https://github.com/kknb1982/pands-project#321-import-the-libraries-needed)|Import the libraries needed|
@@ -22,7 +22,7 @@ This Readme gives an overview of the Python code used to create visual analyses 
 |   [3.2.8](https://github.com/kknb1982/pands-project/blob/main/README.md#328-create-scatterplots)|Create scatterplots|
 |   [3.2.9](https://github.com/kknb1982/pands-project/blob/main/README.md#329-create-boxplots)|Create boxplots|
 |   [3.2.10](https://github.com/kknb1982/pands-project/blob/main/README.md#3210-create-violinplots)|Create violinplots|
-|**[4](https://github.com/kknb1982/pands-project/blob/main/README.md#4-references)**| References| 
+|**[4](https://github.com/kknb1982/pands-project/blob/main/README.md#4-references)**| **References**| 
 
 # 1. How to run the code
 To run the code use `python Analysis.py`. 
