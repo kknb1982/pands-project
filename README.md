@@ -224,7 +224,10 @@ A violin plot shows the distribution of data in a unique way [[31]](https://char
             plt.savefig(name+ 'violin.png')
             plt.close()
 
-# 4. References
+# 4. Further reading and information
+For more information about the Iris Fisher Data Set, the code used in this file and using Python for visual data analyis please read [Descriptor.ipynb](https://github.com/kknb1982/pands-project/blob/main/Descriptor.ipynb). 
+
+# 5. References
 1. Categorical data — pandas 2.0.1 documentation [Internet]. [cited 2023 Apr 24]. Available from: https://pandas.pydata.org/pandas-docs/stable/user_guide/categorical.html
 2. NumPy [Internet]. [cited 2023 May 4]. Available from: https://numpy.org/
 3. Matplotlib — Visualization with Python [Internet]. [cited 2023 Apr 18]. Available from: https://matplotlib.org/
