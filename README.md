@@ -98,29 +98,27 @@ The libraries have been imported using aliases to make the code more streamlined
 ### 3.2.2 Create the variable names
 Fisher's Iris Dataset is published at https://archive.ics.uci.edu/ml/datasets/Iris/ [5]. The data is published without variable names and therefore, these need to be created to be used in our dataframe and code.
 
-  sepallen = "Sepal Length"
-  sepalwid = "Sepal Width"
-  petallen = "Petal Length"
-  petalwid = "Petal Width"
-  species = "Species"
-
-  datafields = sepallen, sepalwid, petallen, petalwid, species
+    sepallen = "Sepal Length"
+    sepalwid = "Sepal Width"
+    petallen = "Petal Length"
+    petalwid = "Petal Width"
+    species = "Species"
+    datafields = sepallen, sepalwid, petallen, petalwid, species
 
 ### 3.2.3 Import Fishers Iris Dataset to a DataFrame
 The code needs to import the Fisher's Iris Dataset and create a `DataFrame` using Pandas [[6]](https://pandas.pydata.org/pandas-docs/stable/user_guide/io.html#csv-text-files).
 
-  dataf = pd.read_csv("https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data", 
-                   names = datafields)
+    dataf = pd.read_csv("https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data", names = datafields)
 
 ### 3.2.4 Finds the names of the iris species
 Throughout the analysis it is useful to interrogate the data and plot it for each species separately. Therefore, we use the `Pandas` `unique()` method on the column "species" to find out the unique values in this column [[7]](https://www.geeksforgeeks.org/get-unique-values-from-a-column-in-pandas-dataframe/). 
 
-  irisspecies = dataf.Species.unique()
+    irisspecies = dataf.Species.unique()
 
 ### 3.2.5 Defines a function to create a text file with summary data about the variable
 The code now moves on to defining functions for the different analyses required [[8]](https://www.w3schools.com/python/python_functions.asp). First is the function `printfielddata`.
 
-  def printfielddata():
+    def printfielddata():
 
 Then a text file is opened to write the data to [[9]](https://www.geeksforgeeks.org/writing-to-file-in-python/). If the files does not exist the code will create it. 
     
@@ -170,7 +168,7 @@ Once all the operations are complete the file is closed.
 ### 3.2.6 Create simple histograms
 The next function `createsimplehist` uses the `matplotlib` histogram function to create a simple histogram of each of the variables of the dataset [[24]](https://matplotlib.org/stable/gallery/statistics/hist.html). `plt.savefig` is used to save the plot to the repository rather than outputting it to the terminal [[25]]. The output is available in the file [combinedhist.png](https://github.com/kknb1982/pands-project/blob/main/combinedhist.png).
 
-  def createsimplehist():
+   def createsimplehist():
      dataf.hist()
      plt.savefig('combinedhist.png')
      plt.close()
@@ -178,8 +176,8 @@ The next function `createsimplehist` uses the `matplotlib` histogram function to
 ### 3.2.7 Create histograms coloured by species
 Without being able to visually separate the different species of iris in the histogram plots it is difficult to tell which, if any, variables offer discrimination. Therefore, I used Seaborn [[4]](https://seaborn.pydata.org/) to create further histograms coloured by "species". I used a `for` loop to create each histogram in turn [[10]](https://www.w3schools.com/python/python_for_loops.asp) and an `if` statement to ensure graphs for all variables bar the species were created [[11](https://www.w3schools.com/python/python_conditions.asp).
 
-  def gethisto():
-    for name in datafields:
+   def gethisto():
+     for name in datafields:
         if name != species:
  
  In order to create the histogram I used Seaborn's `histplot` method with the following options [[26]](https://seaborn.pydata.org/generated/seaborn.histplot.html?highlight=histplot):
