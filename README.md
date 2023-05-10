@@ -27,6 +27,19 @@ This Readme gives an overview of the Python code used to create visual analyses 
 # 1. How to run the code
 To run the code use `python Analysis.py`. 
 
+## 1.1 What else is in the repository?
+The repository on github (https://github.com/kknb1982/pands-project) includes both the code and the output file. The code and how the file contents are created are described in later sections of this Readme, but here is a brief explanation of each file:
+* Analysis.py: This is the file to run to create the dataframe and plots
+* Descriptor.ipynb: This gives an explanation of the Fisher Iris Dataset, techniques for analysing data and explains the journey towards my final code.
+* Petal Length.png: This is a histogram of the Petal Length data split by Species of Iris
+* Petal Width.png: This is a histogram of the Petal Width data split by Species of Iris
+* Sepal Length.png: This is a histogram of the Sepal Length data split by Species of Iris
+* Sepal Width.png: This is a histogram of the Sepal Width data split by Species of Iris
+* combinedhist.png: This file contains histograms of the variable data it is not segregated by species
+* pairplot.png: This file uses the Seaborn parplot function to output multiple scatterplots of two variables. The plots are coloured by species.
+* summary.txt: Gives a summary of each variable
+* variablemodule.py: Contains all the code for the functions and importing the dataset
+
 # 2. Analysis.py
 ## 2.1 Overview of analysis.py
 This file uses the modules outlined in [variablemodule.py](https://github.com/kknb1982/pands-project/blob/main/variablemodule.py) to create a text file of simple statistical analyses of the variables in Fisher's Iris Dataset, histograms of the single variables and scatter plots of variable pairs. To enable meaningful analysis the plots are call coloured by the species of Iris.
