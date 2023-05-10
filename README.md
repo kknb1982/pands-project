@@ -6,6 +6,7 @@ This Readme gives an overview of the Python code used to create visual analyses 
 |**Section number** | **Section title**|
 |-------|-------|
 |**[1](https://github.com/kknb1982/pands-project/blob/main/README.md#1-how-to-run-the-code)** |**How to run the code** |
+|[1.1](https://github.com/kknb1982/pands-project/tree/main#11-what-else-is-in-the-repository)|What else is in the repository?|
 |**[2](https://github.com/kknb1982/pands-project/blob/main/README.md#2-analysispy)** | **Analysis.py**|
 |    [2.1](https://github.com/kknb1982/pands-project/blob/main/README.md#21-overview-of-analysispy)| Overview of analysis.py |
 |    [2.2](https://github.com/kknb1982/pands-project/blob/main/README.md#22-the-code)| The code |
@@ -22,10 +23,30 @@ This Readme gives an overview of the Python code used to create visual analyses 
 |   [3.2.8](https://github.com/kknb1982/pands-project/blob/main/README.md#328-create-scatterplots)|Create scatterplots|
 |   [3.2.9](https://github.com/kknb1982/pands-project/blob/main/README.md#329-create-boxplots)|Create boxplots|
 |   [3.2.10](https://github.com/kknb1982/pands-project/blob/main/README.md#3210-create-violinplots)|Create violinplots|
-|**[4](https://github.com/kknb1982/pands-project/blob/main/README.md#4-references)**| **References**| 
+|**[4](https://github.com/kknb1982/pands-project/tree/main#4-further-reading-and-information)**|Further reading and information|
+|**[5](https://github.com/kknb1982/pands-project/tree/main#5-references))**| **References**| 
 
 # 1. How to run the code
 To run the code use `python Analysis.py`. 
+
+## 1.1 What else is in the repository?
+The repository on github (https://github.com/kknb1982/pands-project) includes both the code and the output file. The code and how the file contents are created are described in later sections of this Readme, but here is a brief explanation of each file:
+* **Analysis.py:** This is the file to run to create the dataframe and plots
+* **Descriptor.ipynb:** This gives an explanation of the Fisher Iris Dataset, techniques for analysing data and explains the journey towards my final code.
+* **Petal Length.png:** This is a histogram of the Petal Length data split by Species of Iris
+* **Petal Lengthviolin.png:** This is a violin plot oof the Petal Length data split by Species of Iris
+* **Petal Width.png:** This is a histogram of the Petal Width data split by Species of Iris
+* **Petal Widthviolin.png:** This is a violin plot of the Petal Width data split by Species of Iris
+* **Sepal Length.png:** This is a histogram of the Sepal Length data split by Species of Iris
+* **Sepal Lengthviolin.png:** This is a violin plot of the Sepal Length data split by Species of Iris
+* **Sepal Width.png:** This is a histogram of the Sepal Width data split by Species of Iris
+* **Sepal Widthviolin.png:** This is a violin plot of the Sepal Width data split by Species of Iris
+* **Ztest.txt:** This is the test file for writing to files used by the Descriptor notebook. This can be ignored.
+* **boxplot.png:** This is a combined box plot for all the variables. Each plot has the data separated by species.
+* **combinedhist.png:** This file contains histograms of the variable data it is not segregated by species
+* **pairplot.png:** This file uses the Seaborn parplot function to output multiple scatterplots of two variables. The plots are coloured by species.
+* **summary.txt:** Gives a summary of each variable. This is created by the Analysis.py script.
+* **variablemodule.py:** Contains all the code for the functions and importing the dataset
 
 # 2. Analysis.py
 ## 2.1 Overview of analysis.py
@@ -70,37 +91,35 @@ In order to analyse the data a few libraries are needed:
 
 The libraries have been imported using aliases to make the code more streamlined. 
 
-  import pandas as pd 
-  import numpy as np
-  import matplotlib.pyplot as plt
-  import seaborn as sns 
+    import pandas as pd 
+    import numpy as np
+    import matplotlib.pyplot as plt
+    import seaborn as sns 
 
 ### 3.2.2 Create the variable names
 Fisher's Iris Dataset is published at https://archive.ics.uci.edu/ml/datasets/Iris/ [5]. The data is published without variable names and therefore, these need to be created to be used in our dataframe and code.
 
-  sepallen = "Sepal Length"
-  sepalwid = "Sepal Width"
-  petallen = "Petal Length"
-  petalwid = "Petal Width"
-  species = "Species"
-
-  datafields = sepallen, sepalwid, petallen, petalwid, species
+    sepallen = "Sepal Length"
+    sepalwid = "Sepal Width"
+    petallen = "Petal Length"
+    petalwid = "Petal Width"
+    species = "Species"
+    datafields = sepallen, sepalwid, petallen, petalwid, species
 
 ### 3.2.3 Import Fishers Iris Dataset to a DataFrame
 The code needs to import the Fisher's Iris Dataset and create a `DataFrame` using Pandas [[6]](https://pandas.pydata.org/pandas-docs/stable/user_guide/io.html#csv-text-files).
 
-  dataf = pd.read_csv("https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data", 
-                   names = datafields)
+    dataf = pd.read_csv("https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data", names = datafields)
 
 ### 3.2.4 Finds the names of the iris species
 Throughout the analysis it is useful to interrogate the data and plot it for each species separately. Therefore, we use the `Pandas` `unique()` method on the column "species" to find out the unique values in this column [[7]](https://www.geeksforgeeks.org/get-unique-values-from-a-column-in-pandas-dataframe/). 
 
-  irisspecies = dataf.Species.unique()
+    irisspecies = dataf.Species.unique()
 
 ### 3.2.5 Defines a function to create a text file with summary data about the variable
 The code now moves on to defining functions for the different analyses required [[8]](https://www.w3schools.com/python/python_functions.asp). First is the function `printfielddata`.
 
-  def printfielddata():
+    def printfielddata():
 
 Then a text file is opened to write the data to [[9]](https://www.geeksforgeeks.org/writing-to-file-in-python/). If the files does not exist the code will create it. 
     
@@ -150,17 +169,17 @@ Once all the operations are complete the file is closed.
 ### 3.2.6 Create simple histograms
 The next function `createsimplehist` uses the `matplotlib` histogram function to create a simple histogram of each of the variables of the dataset [[24]](https://matplotlib.org/stable/gallery/statistics/hist.html). `plt.savefig` is used to save the plot to the repository rather than outputting it to the terminal [[25]]. The output is available in the file [combinedhist.png](https://github.com/kknb1982/pands-project/blob/main/combinedhist.png).
 
-  def createsimplehist():
-     dataf.hist()
-     plt.savefig('combinedhist.png')
-     plt.close()
+    def createsimplehist():
+      dataf.hist()
+      plt.savefig('combinedhist.png')
+      plt.close()
 
 ### 3.2.7 Create histograms coloured by species
 Without being able to visually separate the different species of iris in the histogram plots it is difficult to tell which, if any, variables offer discrimination. Therefore, I used Seaborn [[4]](https://seaborn.pydata.org/) to create further histograms coloured by "species". I used a `for` loop to create each histogram in turn [[10]](https://www.w3schools.com/python/python_for_loops.asp) and an `if` statement to ensure graphs for all variables bar the species were created [[11](https://www.w3schools.com/python/python_conditions.asp).
 
-  def gethisto():
-    for name in datafields:
-        if name != species:
+    def gethisto():
+      for name in datafields:
+         if name != species:
  
  In order to create the histogram I used Seaborn's `histplot` method with the following options [[26]](https://seaborn.pydata.org/generated/seaborn.histplot.html?highlight=histplot):
  * data source of the data as the dataframe, 
@@ -199,14 +218,17 @@ Boxplots are very useful for giving a visual representation of the statistical i
 ### 3.2.10 Create violinplots
 A violin plot shows the distribution of data in a unique way [[31]](https://chartio.com/learn/charts/violin-plot-complete-guide/). I used a `for` loop to create each violinplot in turn [[10]](https://www.w3schools.com/python/python_for_loops.asp) and an `if` statement to ensure graphs for all variables bar the species were created [[11]](https://www.w3schools.com/python/python_conditions.asp).  To create the violinplot I used Seaborn [[32]](https://seaborn.pydata.org/generated/seaborn.violinplot.html). Defining the `x` parameter as species, splits the data by species in each of the plots.
 
-   def getviolinplots():
+    def getviolinplots():
      for name in datafields:
         if name != species:
             sns.violinplot(data=dataf, x=species, y=name)
             plt.savefig(name+ 'violin.png')
             plt.close()
 
-# 4. References
+# 4. Further reading and information
+For more information about the Iris Fisher Data Set, the code used in this file and using Python for visual data analyis please read [Descriptor.ipynb](https://github.com/kknb1982/pands-project/blob/main/Descriptor.ipynb). 
+
+# 5. References
 1. Categorical data — pandas 2.0.1 documentation [Internet]. [cited 2023 Apr 24]. Available from: https://pandas.pydata.org/pandas-docs/stable/user_guide/categorical.html
 2. NumPy [Internet]. [cited 2023 May 4]. Available from: https://numpy.org/
 3. Matplotlib — Visualization with Python [Internet]. [cited 2023 Apr 18]. Available from: https://matplotlib.org/
