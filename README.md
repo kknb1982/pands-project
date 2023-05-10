@@ -6,6 +6,7 @@ This Readme gives an overview of the Python code used to create visual analyses 
 |**Section number** | **Section title**|
 |-------|-------|
 |**[1](https://github.com/kknb1982/pands-project/blob/main/README.md#1-how-to-run-the-code)** |**How to run the code** |
+|[1.1](https://github.com/kknb1982/pands-project/tree/main#11-what-else-is-in-the-repository)|What else is in the repository?|
 |**[2](https://github.com/kknb1982/pands-project/blob/main/README.md#2-analysispy)** | **Analysis.py**|
 |    [2.1](https://github.com/kknb1982/pands-project/blob/main/README.md#21-overview-of-analysispy)| Overview of analysis.py |
 |    [2.2](https://github.com/kknb1982/pands-project/blob/main/README.md#22-the-code)| The code |
@@ -29,16 +30,22 @@ To run the code use `python Analysis.py`.
 
 ## 1.1 What else is in the repository?
 The repository on github (https://github.com/kknb1982/pands-project) includes both the code and the output file. The code and how the file contents are created are described in later sections of this Readme, but here is a brief explanation of each file:
-* Analysis.py: This is the file to run to create the dataframe and plots
-* Descriptor.ipynb: This gives an explanation of the Fisher Iris Dataset, techniques for analysing data and explains the journey towards my final code.
-* Petal Length.png: This is a histogram of the Petal Length data split by Species of Iris
-* Petal Width.png: This is a histogram of the Petal Width data split by Species of Iris
-* Sepal Length.png: This is a histogram of the Sepal Length data split by Species of Iris
-* Sepal Width.png: This is a histogram of the Sepal Width data split by Species of Iris
-* combinedhist.png: This file contains histograms of the variable data it is not segregated by species
-* pairplot.png: This file uses the Seaborn parplot function to output multiple scatterplots of two variables. The plots are coloured by species.
-* summary.txt: Gives a summary of each variable
-* variablemodule.py: Contains all the code for the functions and importing the dataset
+* **Analysis.py:** This is the file to run to create the dataframe and plots
+* **Descriptor.ipynb:** This gives an explanation of the Fisher Iris Dataset, techniques for analysing data and explains the journey towards my final code.
+* **Petal Length.png:** This is a histogram of the Petal Length data split by Species of Iris
+* **Petal Lengthviolin.png:** This is a violin plot oof the Petal Length data split by Species of Iris
+* **Petal Width.png:** This is a histogram of the Petal Width data split by Species of Iris
+* **Petal Widthviolin.png:** This is a violin plot of the Petal Width data split by Species of Iris
+* **Sepal Length.png:** This is a histogram of the Sepal Length data split by Species of Iris
+* **Sepal Lengthviolin.png:** This is a violin plot of the Sepal Length data split by Species of Iris
+* **Sepal Width.png:** This is a histogram of the Sepal Width data split by Species of Iris
+* **Sepal Widthviolin.png:** This is a violin plot of the Sepal Width data split by Species of Iris
+* **Ztest.txt:** This is the test file for writing to files used by the Descriptor notebook. This can be ignored.
+* **boxplot.png:** This is a combined box plot for all the variables. Each plot has the data separated by species.
+* **combinedhist.png:** This file contains histograms of the variable data it is not segregated by species
+* **pairplot.png:** This file uses the Seaborn parplot function to output multiple scatterplots of two variables. The plots are coloured by species.
+* **summary.txt:** Gives a summary of each variable. This is created by the Analysis.py script.
+* **variablemodule.py:** Contains all the code for the functions and importing the dataset
 
 # 2. Analysis.py
 ## 2.1 Overview of analysis.py
