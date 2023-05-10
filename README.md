@@ -90,10 +90,10 @@ In order to analyse the data a few libraries are needed:
 
 The libraries have been imported using aliases to make the code more streamlined. 
 
-  import pandas as pd 
-  import numpy as np
-  import matplotlib.pyplot as plt
-  import seaborn as sns 
+    import pandas as pd 
+    import numpy as np
+    import matplotlib.pyplot as plt
+    import seaborn as sns 
 
 ### 3.2.2 Create the variable names
 Fisher's Iris Dataset is published at https://archive.ics.uci.edu/ml/datasets/Iris/ [5]. The data is published without variable names and therefore, these need to be created to be used in our dataframe and code.
@@ -168,17 +168,17 @@ Once all the operations are complete the file is closed.
 ### 3.2.6 Create simple histograms
 The next function `createsimplehist` uses the `matplotlib` histogram function to create a simple histogram of each of the variables of the dataset [[24]](https://matplotlib.org/stable/gallery/statistics/hist.html). `plt.savefig` is used to save the plot to the repository rather than outputting it to the terminal [[25]]. The output is available in the file [combinedhist.png](https://github.com/kknb1982/pands-project/blob/main/combinedhist.png).
 
-   def createsimplehist():
-     dataf.hist()
-     plt.savefig('combinedhist.png')
-     plt.close()
+    def createsimplehist():
+      dataf.hist()
+      plt.savefig('combinedhist.png')
+      plt.close()
 
 ### 3.2.7 Create histograms coloured by species
 Without being able to visually separate the different species of iris in the histogram plots it is difficult to tell which, if any, variables offer discrimination. Therefore, I used Seaborn [[4]](https://seaborn.pydata.org/) to create further histograms coloured by "species". I used a `for` loop to create each histogram in turn [[10]](https://www.w3schools.com/python/python_for_loops.asp) and an `if` statement to ensure graphs for all variables bar the species were created [[11](https://www.w3schools.com/python/python_conditions.asp).
 
-   def gethisto():
-     for name in datafields:
-        if name != species:
+    def gethisto():
+      for name in datafields:
+         if name != species:
  
  In order to create the histogram I used Seaborn's `histplot` method with the following options [[26]](https://seaborn.pydata.org/generated/seaborn.histplot.html?highlight=histplot):
  * data source of the data as the dataframe, 
@@ -217,7 +217,7 @@ Boxplots are very useful for giving a visual representation of the statistical i
 ### 3.2.10 Create violinplots
 A violin plot shows the distribution of data in a unique way [[31]](https://chartio.com/learn/charts/violin-plot-complete-guide/). I used a `for` loop to create each violinplot in turn [[10]](https://www.w3schools.com/python/python_for_loops.asp) and an `if` statement to ensure graphs for all variables bar the species were created [[11]](https://www.w3schools.com/python/python_conditions.asp).  To create the violinplot I used Seaborn [[32]](https://seaborn.pydata.org/generated/seaborn.violinplot.html). Defining the `x` parameter as species, splits the data by species in each of the plots.
 
-   def getviolinplots():
+    def getviolinplots():
      for name in datafields:
         if name != species:
             sns.violinplot(data=dataf, x=species, y=name)
