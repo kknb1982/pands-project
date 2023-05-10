@@ -23,7 +23,8 @@ This Readme gives an overview of the Python code used to create visual analyses 
 |   [3.2.8](https://github.com/kknb1982/pands-project/blob/main/README.md#328-create-scatterplots)|Create scatterplots|
 |   [3.2.9](https://github.com/kknb1982/pands-project/blob/main/README.md#329-create-boxplots)|Create boxplots|
 |   [3.2.10](https://github.com/kknb1982/pands-project/blob/main/README.md#3210-create-violinplots)|Create violinplots|
-|**[4](https://github.com/kknb1982/pands-project/blob/main/README.md#4-references)**| **References**| 
+|**[4](https://github.com/kknb1982/pands-project/tree/main#4-further-reading-and-information)**|Further reading and information|
+|**[5](https://github.com/kknb1982/pands-project/tree/main#5-references))**| **References**| 
 
 # 1. How to run the code
 To run the code use `python Analysis.py`. 
