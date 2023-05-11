@@ -200,15 +200,19 @@ The resulting figure was then saved and the plot closed.
             plt.close()
 
 ### 3.2.8 Create scatterplots
-To create the scatterplots of the variable pairs I used the `pairplot` graph in Seaborn [[29]].  This easy to create graphic automatically plots each variable pair as a scatter plot and a layered Kernel Density Estimate (KDE) for the univariate plots. In order to create greater alignment with the earlier plots I added the option `diag_kind="hist"` to change this univariate plot to a histogram.
+To create the scatterplots of the variable pairs I used the `pairplot` graph in Seaborn [[29]].  This easy to create graphic automatically plots each variable pair as a scatter plot and a layered Kernel Density Estimate (KDE) for the univariate plots. In order to create greater alignment with the earlier plots I added the option `diag_kind="hist"` to change this univariate plot to a histogram. To help the user understand the plots and increase their visual appeal I used `fig.suptitle`, `fig.supxlabel` and `fig.supylabel`[[30]]. To create space for these super labels to show I used `fig.subplots_adjust`[[31]].
 
     def createpairplot():
-     sns.pairplot(dataf, hue=species, diag_kind="hist")
-     plt.savefig('pairplot.png')
-     plt.close()
+      g= sns.pairplot(dataf, hue=species, diag_kind="hist")
+      g.fig.subplots_adjust(left= .1, bottom=.1, top=.95)
+      g.fig.suptitle('Pairplot of the variables in the Fisher Iris Dataset', fontsize = 16, fontweight='bold')
+      g.fig.supxlabel('in cm')
+      g.fig.supylabel('in cm')
+      plt.savefig('pairplot.png')
+      plt.close()
      
 ### 3.2.9 Create boxplots
-Boxplots are very useful for giving a visual representation of the statistical information about some data. I used the Pandas Boxplot method to create the plots [[30]](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.boxplot.html). The default figure sizing meant that the species labels overlapped making them unreadable, so I increased it to 11 by 11. Again, I used savefig [[25]](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.savefig.html#matplotlib.pyplot.savefig) to save a copy of this figure to the repository (https://github.com/kknb1982/pands-project/blob/main/boxplot.png). 
+Boxplots are very useful for giving a visual representation of the statistical information about some data. I used the Pandas Boxplot method to create the plots [[32]](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.boxplot.html). The default figure sizing meant that the species labels overlapped making them unreadable, so I increased it to 11 by 11. Again, I used savefig [[25]](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.savefig.html#matplotlib.pyplot.savefig) to save a copy of this figure to the repository (https://github.com/kknb1982/pands-project/blob/main/boxplot.png). 
 
     def getboxplots():
     dataf.boxplot(by=species, figsize=(11,11))
@@ -216,12 +220,14 @@ Boxplots are very useful for giving a visual representation of the statistical i
     plt.close()
     
 ### 3.2.10 Create violinplots
-A violin plot shows the distribution of data in a unique way [[31]](https://chartio.com/learn/charts/violin-plot-complete-guide/). I used a `for` loop to create each violinplot in turn [[10]](https://www.w3schools.com/python/python_for_loops.asp) and an `if` statement to ensure graphs for all variables bar the species were created [[11]](https://www.w3schools.com/python/python_conditions.asp).  To create the violinplot I used Seaborn [[32]](https://seaborn.pydata.org/generated/seaborn.violinplot.html). Defining the `x` parameter as species, splits the data by species in each of the plots.
+A violin plot shows the distribution of data in a unique way [[33]](https://chartio.com/learn/charts/violin-plot-complete-guide/). I used a `for` loop to create each violinplot in turn [[10]](https://www.w3schools.com/python/python_for_loops.asp) and an `if` statement to ensure graphs for all variables bar the species were created [[11]](https://www.w3schools.com/python/python_conditions.asp).  To create the violinplot I used Seaborn [[33]](https://seaborn.pydata.org/generated/seaborn.violinplot.html). Defining the `x` parameter as species, splits the data by species in each of the plots. The plot readability was improved by added a title [[28]] and ylabel [[27]].
 
     def getviolinplots():
      for name in datafields:
         if name != species:
             sns.violinplot(data=dataf, x=species, y=name)
+            plt.ylabel(name+ 'in cm')
+            plt.title(f'Violin plot of {name} in cm separated by species')
             plt.savefig(name+ 'violin.png')
             plt.close()
 
@@ -258,3 +264,8 @@ For more information about the Iris Fisher Data Set, the code used in this file 
 27. matplotlib.pyplot.xlabel — Matplotlib 3.7.1 documentation [Internet]. [cited 2023 May 8]. Available from: https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.xlabel.html
 28. matplotlib.pyplot.title — Matplotlib 3.7.1 documentation [Internet]. [cited 2023 May 8]. Available from: https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.title.html
 29. seaborn.pairplot — seaborn 0.12.2 documentation [Internet]. [cited 2023 Apr 22]. Available from: https://seaborn.pydata.org/generated/seaborn.pairplot.html
+30. Python matplotlib plot Figure labels: suptitle, supxlabel, supylabel [Internet]. [cited 2023 May 11]. Available from: https://www.demo2s.com/python/python-matplotlib-plot-figure-labels-suptitle-supxlabel-supylabel.html
+31. matplotlib.pyplot.subplots_adjust — Matplotlib 3.7.1 documentation [Internet]. [cited 2023 May 11]. Available from: https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.subplots_adjust.html
+32. seaborn.boxplot — seaborn 0.12.2 documentation [Internet]. [cited 2023 May 11]. Available from: https://seaborn.pydata.org/generated/seaborn.boxplot.html
+33. seaborn.violinplot — seaborn 0.12.2 documentation [Internet]. [cited 2023 May 9]. Available from: https://seaborn.pydata.org/generated/seaborn.violinplot.html
+
