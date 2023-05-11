@@ -72,9 +72,10 @@ The next module creates scatter plot for the variable pairs and histograms for t
 
     createpairplot()
 
-The next module creates box plots to graphically show most of the statistical data from the text file.
+The next module creates box plots to graphically show most of the statistical data from the text file. The second function uses the subplot function to create the box plots [47]. 
 
     getboxplots()
+    createboxsub()
 
 The final module creates violinplots which shows the distribution of the data across the range.
     
