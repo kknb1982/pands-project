@@ -51,14 +51,14 @@ The repository on github (https://github.com/kknb1982/pands-project) includes bo
 
 # 2. Analysis.py
 ## 2.1 Overview of analysis.py
-This file uses the modules outlined in [variablemodule.py](https://github.com/kknb1982/pands-project/blob/main/variablemodule.py) to create a text file of simple statistical analyses of the variables in Fisher's Iris Dataset, histograms of the single variables and scatter plots of variable pairs. To enable meaningful analysis the plots are coloured by the species of Iris.
+This file uses the functions outlined in [variablemodule.py](https://github.com/kknb1982/pands-project/blob/main/variablemodule.py) to create a text file of simple statistical analyses of the variables in Fisher's Iris Dataset, histograms of the single variables and scatter plots of variable pairs. To enable meaningful analysis the plots are coloured by the species of Iris.
 
 ## 2.2 The code
- The code starts by importing all the required modules and data from the variablemodule file.
+The code starts by importing all the required modules and data from the variablemodule file.
     
     from variablemodule import *
 
-This first function creates a file and prints basic statistical information about each column to the file summary.txt
+This first function creates a file and prints basic statistical information about each column to the file summary.txt(https://github.com/kknb1982/pands-project/blob/main/summary.txt).
 
     printfielddata()
 
@@ -66,7 +66,7 @@ The next function creates simple histograms without colouring and saves them as 
     
     createsimplehist()
 
-These histograms without colouring by species are hard to read and only show the overall spread of the data, it does not help to decide which variables actually allow identification of the species. Therefore, there is a further module `gethisto()` creating individual plots, coloured by species.
+These histograms without colouring by species are hard to read and only show the overall spread of the data, it does not help to decide which variables actually allow identification of the species. Therefore, there is a further function `gethisto()` creates individual plots, coloured by species.
 
 The next function creates scatter plot for the variable pairs and histograms for the univariate plots.
 
@@ -107,7 +107,9 @@ Fisher's Iris Dataset is published at https://archive.ics.uci.edu/ml/datasets/Ir
     petalwid = "Petal Width"
     species = "Species"
     datafields = sepallen, sepalwid, petallen, petalwid, species
-    
+
+Due to the number of times the plotting functions need to call on the numerical columns of the data only a new variable has been created for this by slicing [34](https://www.geeksforgeeks.org/python-tuples/).
+
     chartvariables = datafields[:4]
     
 ### 3.2.3 Import Fishers Iris Dataset to a DataFrame
@@ -206,7 +208,7 @@ The resulting figure was then saved and the plot closed.
             plt.close()
 
 ### 3.2.8 Create scatterplots
-To create the scatterplots of the variable pairs the `pairplot` graph in Seaborn was used [[29]](https://seaborn.pydata.org/generated/seaborn.pairplot.html).  This easy to create graphic automatically plots each variable pair as a scatter plot and a layered Kernel Density Estimate (KDE) for the univariate plots. In order to create greater alignment with the earlier plots the option `diag_kind="hist"` was used to change this univariate plot to a histogram. To help the user understand the plots and increase their visual appeal `fig.suptitle`, `fig.supxlabel` and `fig.supylabel` were used [[30]](https://www.demo2s.com/python/python-matplotlib-plot-figure-labels-suptitle-supxlabel-supylabel.html). To create space for these super labels to show `fig.subplots_adjust` was used[[31]](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.subplots_adjust.html).
+To create the scatterplots of the variable pairs the `pairplot` graph in Seaborn was used [[29]](https://seaborn.pydata.org/generated/seaborn.pairplot.html).  This easy to create graphic automatically plots each variable pair as a scatter plot and a layered Kernel Density Estimate (KDE) for the univariate plots. In order to create greater alignment with the earlier plots the option `diag_kind="hist"` was used to change this univariate plot to a histogram. To help the user understand the plots and increase their visual appeal `fig.suptitle`, `fig.supxlabel` and `fig.supylabel` were used [[30]](https://www.demo2s.com/python/python-matplotlib-plot-figure-labels-suptitle-supxlabel-supylabel.html). To create space for these super labels to show `fig.subplots_adjust` was used [[31]](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.subplots_adjust.html).
 
     def createpairplot():
       g= sns.pairplot(dataf, hue=species, diag_kind="hist")
@@ -221,9 +223,9 @@ To create the scatterplots of the variable pairs the `pairplot` graph in Seaborn
 Boxplots are very useful for giving a visual representation of the statistical information about some data. The Pandas Boxplot method was used to create the plots [[32]](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.boxplot.html). The default figure sizing meant that the species labels overlapped making them unreadable, so it has been increased to 11 by 11. Savefig [[25]](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.savefig.html#matplotlib.pyplot.savefig) was used to save a copy of this figure to the repository (https://github.com/kknb1982/pands-project/blob/main/boxplot.png). 
 
     def getboxplots():
-    dataf.boxplot(by=species, figsize=(11,11))
-    plt.savefig('boxplot.png')
-    plt.close()
+       dataf.boxplot(by=species, figsize=(11,11))
+       plt.savefig('boxplot.png')
+       plt.close()
     
 ### 3.2.10 Creating boxplots using the subplot method
 Using the method in 3.2.9 to create a box is quick, but it can be a little tricky to get the plot in exactly the format required. Therefore, this is an additional option using the subplot function [[33]](https://www.statology.org/pandas-subplots/). 
@@ -307,7 +309,7 @@ For more information about the Iris Fisher Data Set, the code used in this file 
 31. matplotlib.pyplot.subplots_adjust — Matplotlib 3.7.1 documentation [Internet]. [cited 2023 May 11]. Available from: https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.subplots_adjust.html
 32. pandas.DataFrame.boxplot — pandas 2.0.1 documentation [Internet]. [cited 2023 May 8]. Available from: https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.boxplot.html
 33. Pandas: How to Plot Multiple DataFrames in Subplots - Statology [Internet]. [cited 2023 May 11]. Available from: https://www.statology.org/pandas-subplots/
-34. Python Tuples - GeeksforGeeks [Internet]. [cited 2023 May 11]. Available from: https://www.geeksforgeeks.org/python-tuples/https://www.statology.org/pandas-subplots/
+34. Python Tuples - GeeksforGeeks [Internet]. [cited 2023 May 11]. Available from: https://www.geeksforgeeks.org/python-tuples/
 35. Constrained Layout Guide — Matplotlib 3.7.1 documentation [Internet]. [cited 2023 May 11]. Available from: https://matplotlib.org/stable/tutorials/intermediate/constrainedlayout_guide.html
 36. Seaborn.boxplot — seaborn 0.12.2 documentation [Internet]. [cited 2023 May 11]. Available from: https://seaborn.pydata.org/generated/seaborn.boxplot.html
 37. seaborn.violinplot — seaborn 0.12.2 documentation [Internet]. [cited 2023 May 9]. Available from: https://seaborn.pydata.org/generated/seaborn.violinplot.html
