@@ -78,12 +78,13 @@ def createpairplot():
     plt.savefig('pairplot.png')
     plt.close()
 
+# Creates simple box plot
 def getboxplots():
     dataf.boxplot(by=species, figsize=(11,11))
     plt.savefig('boxplot.png')
     plt.close()
 
-
+# Creates boxplot using subplot method
 def createboxsub():
     fig, axs = plt.subplots(nrows=2, ncols=2, layout='constrained')
     plt.suptitle("Box plots of Fisher Iris Dataset by Species")
@@ -97,6 +98,7 @@ def createboxsub():
         plt.savefig('boxsub.png')
         plt.close()
 
+# Creates violin plot
 def getviolinplots():
     for name in datafields:
         if name != species:
