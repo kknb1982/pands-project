@@ -66,7 +66,11 @@ def gethisto():
             plt.close()
 
 def createpairplot():
-    sns.pairplot(dataf, hue=species, diag_kind="hist")
+    g= sns.pairplot(dataf, hue=species, diag_kind="hist")
+    g.fig.subplots_adjust(left= .1, bottom=.1, top=.95)
+    g.fig.suptitle('Pairplot of the variables in the Fisher Iris Dataset', fontsize = 16, fontweight='bold')
+    g.fig.supxlabel('in cm')
+    g.fig.supylabel('in cm')
     plt.savefig('pairplot.png')
     plt.close()
 
