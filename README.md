@@ -49,40 +49,40 @@ The repository on github (https://github.com/kknb1982/pands-project) includes bo
 * **variablemodule.py:** This is the code for importing the dataset, setting variables and the functions to create the plots.
 * **Ztest.txt:** This is the test file for writing to files used by the Descriptor notebook. This can be ignored.
 * **boxplot.png:** This is a combined box plot for all the variables. Each plot has the data separated by species.
-* **combinedhist.png:** This file contains histograms of the variable data it is not segregated by species
+* **combinedhist.png:** This file contains histograms of the variable data it is not segregated by species.
 * **pairplot.png:** This file uses the Seaborn parplot function to output multiple scatterplots of two variables. The plots are coloured by species.
 * **summary.txt:** Gives a summary of each variable. This is created by the Analysis.py script.
 * **variablemodule.py:** Contains all the code for the functions and importing the dataset
 
 # 2. Analysis.py
 ## 2.1 Overview of analysis.py
-This file uses the modules outlined in [variablemodule.py](https://github.com/kknb1982/pands-project/blob/main/variablemodule.py) to create a text file of simple statistical analyses of the variables in Fisher's Iris Dataset, histograms of the single variables and scatter plots of variable pairs. To enable meaningful analysis the plots are call coloured by the species of Iris.
+This file uses the modules outlined in [variablemodule.py](https://github.com/kknb1982/pands-project/blob/main/variablemodule.py) to create a text file of simple statistical analyses of the variables in Fisher's Iris Dataset, histograms of the single variables and scatter plots of variable pairs. To enable meaningful analysis the plots are coloured by the species of Iris.
 
 ## 2.2 The code
  The code starts by importing all the required modules and data from the variablemodule file.
     
     from variablemodule import *
 
-This first module create a file and prints basic statistical information about each column to the file variabledata.txt
+This first function creates a file and prints basic statistical information about each column to the file summary.txt
 
     printfielddata()
 
-The next module creates simple histograms without colouring and saves them as combinehist.png to the github repository.
+The next function creates simple histograms without colouring and saves them as combinehist.png to the github repository.
     
     createsimplehist()
 
-These histograms without colouring by species are hard to read and only show the overall spread of the data, it does not help to decide which variables actually allow identification of the species. Therefore, there is a second module `gethisto()` creating individual plots, coloured by species.
+These histograms without colouring by species are hard to read and only show the overall spread of the data, it does not help to decide which variables actually allow identification of the species. Therefore, there is a further module `gethisto()` creating individual plots, coloured by species.
 
-The next module creates scatter plot for the variable pairs and histograms for the univariate plots.
+The next function creates scatter plot for the variable pairs and histograms for the univariate plots.
 
     createpairplot()
 
-The next module creates box plots to graphically show most of the statistical data from the text file. The second function uses the subplot function to create the box plots [47]. 
+The next function creates box plots to graphically show most of the statistical data from the text file. The second function uses the subplot function to create the box plots [47]. 
 
     getboxplots()
     createboxsub()
 
-The final module creates violinplots which shows the distribution of the data across the range.
+The final function creates violinplots which shows the distribution of the data across the range.
     
     getviolinplots()
 
