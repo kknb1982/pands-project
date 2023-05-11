@@ -22,7 +22,8 @@ This Readme gives an overview of the Python code used to create visual analyses 
 |   [3.2.7](https://github.com/kknb1982/pands-project/blob/main/README.md#327-create-histograms-coloured-by-species)|Create histograms coloured by species |
 |   [3.2.8](https://github.com/kknb1982/pands-project/blob/main/README.md#328-create-scatterplots)|Create scatterplots|
 |   [3.2.9](https://github.com/kknb1982/pands-project/blob/main/README.md#329-create-boxplots)|Create boxplots|
-|   [3.2.10](https://github.com/kknb1982/pands-project/blob/main/README.md#3210-create-violinplots)|Create violinplots|
+|   [3.2.10] |Create boxplots using the subplot method|
+|   [3.2.11](https://github.com/kknb1982/pands-project/blob/main/README.md#3210-create-violinplots)|Create violinplots|
 |**[4](https://github.com/kknb1982/pands-project/tree/main#4-further-reading-and-information)**|Further reading and information|
 |**[5](https://github.com/kknb1982/pands-project/tree/main#5-references))**| **References**| 
 
@@ -219,8 +220,38 @@ Boxplots are very useful for giving a visual representation of the statistical i
     plt.savefig('boxplot.png')
     plt.close()
     
-### 3.2.10 Create violinplots
-A violin plot shows the distribution of data in a unique way [[33]](https://chartio.com/learn/charts/violin-plot-complete-guide/). I used a `for` loop to create each violinplot in turn [[10]](https://www.w3schools.com/python/python_for_loops.asp) and an `if` statement to ensure graphs for all variables bar the species were created [[11]](https://www.w3schools.com/python/python_conditions.asp).  To create the violinplot I used Seaborn [[33]](https://seaborn.pydata.org/generated/seaborn.violinplot.html). Defining the `x` parameter as species, splits the data by species in each of the plots. The plot readability was improved by added a title [[28]] and ylabel [[27]].
+### 3.2.10 Creating boxplots using the subplot method
+Using the method in 3.2.9 to create a box is quick, but it can be a little tricky to get the plot in exactly the format you wish. Therefore, I have included an additional option using the subplot function [[33]]. Rather than using the `if name !=species` as used is 3.2.7 this function uses a different option, it slices the first four variables from the `datafields` tuple [[34]]. This can be simpler and enables the same variable name to be used throughout scripts.
+
+    chartvariables = datafields[:4]
+    
+The I start to define the function. First I add the core details about the subplots [[33]]:
+
+    def createboxsub():
+      fig, axs = plt.subplots(nrows=2, ncols=2, layout='constrained')
+      
+This creates the sub-plots in a 2 by 2 grid [[33]] in the constrained layout [[35]] which automatically tries to layout the plots in a way where labels and titles do not overlap.
+
+Then I used `suptitle` to create an overall title for the plot [[30]].
+
+      plt.suptitle("Box plots of Fisher Iris Dataset by Species")
+
+To ensure the subplots went to the correct axis I created a positional argument `a` and set it to one. This was increased by after each subplot was created. This meant the first plot of data goes to subplot 1 and the second to subplot 2 and so on. 
+
+The sub-plots were created with a `for` loop [[10]]. The subplots use Seaborn boxplot [[36]] `sns.boxplot` with the parameters to plot by species on the x axis and the current iterator on the y axis. I used Matplotlib's `ylabel` [[27]] to create the y label. An `f string` [[20]] was used to format the y label. The positional variable was then increased by one to ensure the next set of data went to the next set of axes. 
+    a = 1
+    for name in chartvariables:
+        plt.subplot(2,2,a)
+        sns.boxplot(data=dataf, x=species, y=name)
+        plt.ylabel(f'{name} in cm')
+        a += 1
+        
+Once all the iterations were complete an `else` statement was used to create and save the plot [[25]].         
+    else:
+        plt.savefig('boxsub.png')
+        
+### 3.2.11 Create violinplots
+A violin plot shows the distribution of data in a unique way [[37]](https://chartio.com/learn/charts/violin-plot-complete-guide/). I used a `for` loop to create each violinplot in turn [[10]](https://www.w3schools.com/python/python_for_loops.asp) and an `if` statement to ensure graphs for all variables bar the species were created [[11]](https://www.w3schools.com/python/python_conditions.asp).  To create the violinplot I used Seaborn [[38]](https://seaborn.pydata.org/generated/seaborn.violinplot.html). Defining the `x` parameter as species, splits the data by species in each of the plots. The plot readability was improved by added a title [[28]] and ylabel [[27]].
 
     def getviolinplots():
      for name in datafields:
@@ -230,6 +261,8 @@ A violin plot shows the distribution of data in a unique way [[33]](https://char
             plt.title(f'Violin plot of {name} in cm separated by species')
             plt.savefig(name+ 'violin.png')
             plt.close()
+            
+Using the structure in 3.2.11 these plots could be created as a single plot of subplots, rather than individually.
 
 # 4. Further reading and information
 For more information about the Iris Fisher Data Set, the code used in this file and using Python for visual data analyis please read [Descriptor.ipynb](https://github.com/kknb1982/pands-project/blob/main/Descriptor.ipynb). 
@@ -267,5 +300,7 @@ For more information about the Iris Fisher Data Set, the code used in this file 
 30. Python matplotlib plot Figure labels: suptitle, supxlabel, supylabel [Internet]. [cited 2023 May 11]. Available from: https://www.demo2s.com/python/python-matplotlib-plot-figure-labels-suptitle-supxlabel-supylabel.html
 31. matplotlib.pyplot.subplots_adjust — Matplotlib 3.7.1 documentation [Internet]. [cited 2023 May 11]. Available from: https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.subplots_adjust.html
 32. seaborn.boxplot — seaborn 0.12.2 documentation [Internet]. [cited 2023 May 11]. Available from: https://seaborn.pydata.org/generated/seaborn.boxplot.html
-33. seaborn.violinplot — seaborn 0.12.2 documentation [Internet]. [cited 2023 May 9]. Available from: https://seaborn.pydata.org/generated/seaborn.violinplot.html
+33. https://www.statology.org/pandas-subplots/
+34. https://www.geeksforgeeks.org/python-tuples/
+35. seaborn.violinplot — seaborn 0.12.2 documentation [Internet]. [cited 2023 May 9]. Available from: https://seaborn.pydata.org/generated/seaborn.violinplot.html
 
