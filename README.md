@@ -31,17 +31,22 @@ This Readme gives an overview of the Python code used to create visual analyses 
 To run the code use `python Analysis.py`. 
 
 ## 1.1 What else is in the repository?
-The repository on github (https://github.com/kknb1982/pands-project) includes both the code and the output file. The code and how the file contents are created are described in later sections of this Readme, but here is a brief explanation of each file:
+The repository on github (https://github.com/kknb1982/pands-project) includes both the code and the output files. The code and how the file contents are created are described in later sections of this Readme, but here is a brief explanation of each file:
 * **Analysis.py:** This is the file to run to create the dataframe and plots
-* **Descriptor.ipynb:** This gives an explanation of the Fisher Iris Dataset, techniques for analysing data and explains the journey towards my final code.
-* **Petal Length.png:** This is a histogram of the Petal Length data split by Species of Iris
-* **Petal Lengthviolin.png:** This is a violin plot oof the Petal Length data split by Species of Iris
-* **Petal Width.png:** This is a histogram of the Petal Width data split by Species of Iris
-* **Petal Widthviolin.png:** This is a violin plot of the Petal Width data split by Species of Iris
-* **Sepal Length.png:** This is a histogram of the Sepal Length data split by Species of Iris
+* **boxplot.png:** This is a boxplot of the Fisher Iris Dataset separated by species.
+* **boxsub.png:** This is another boxplot of the Fisher Iris Dataset separated by species. This plot has been created using the subplot method for a better layout.
+* **Descriptor.ipynb:** This gives an explanation of the Fisher Iris Dataset, techniques for analysing data visually and explains the journey towards my final code.
+* **pairplot.png:** This shows of plot of all variable pairs as scatter plots and univariate plots as histograms.
+* **Petal Length.png:** This is a histogram of the Petal Length data split by Species of Iris.
+* **Petal Lengthviolin.png:** This is a violin plot of the Petal Length data split by Species of Iris.
+* **Petal Width.png:** This is a histogram of the Petal Width data split by Species of Iris.
+* **Petal Widthviolin.png:** This is a violin plot of the Petal Width data split by Species of Iris.
+* **Sepal Length.png:** This is a histogram of the Sepal Length data split by Species of Iris.
 * **Sepal Lengthviolin.png:** This is a violin plot of the Sepal Length data split by Species of Iris
 * **Sepal Width.png:** This is a histogram of the Sepal Width data split by Species of Iris
 * **Sepal Widthviolin.png:** This is a violin plot of the Sepal Width data split by Species of Iris
+* **summary.txt:** This text file gives details about the Iris Fisher dataset.
+* **variablemodule.py:** This is the code for importing the dataset, setting variables and the functions to create the plots.
 * **Ztest.txt:** This is the test file for writing to files used by the Descriptor notebook. This can be ignored.
 * **boxplot.png:** This is a combined box plot for all the variables. Each plot has the data separated by species.
 * **combinedhist.png:** This file contains histograms of the variable data it is not segregated by species
