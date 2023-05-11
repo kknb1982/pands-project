@@ -22,8 +22,8 @@ This Readme gives an overview of the Python code used to create visual analyses 
 |   [3.2.7](https://github.com/kknb1982/pands-project/blob/main/README.md#327-create-histograms-coloured-by-species)|Create histograms coloured by species |
 |   [3.2.8](https://github.com/kknb1982/pands-project/blob/main/README.md#328-create-scatterplots)|Create scatterplots|
 |   [3.2.9](https://github.com/kknb1982/pands-project/blob/main/README.md#329-create-boxplots)|Create boxplots|
-|   [3.2.10] |Create boxplots using the subplot method|
-|   [3.2.11](https://github.com/kknb1982/pands-project/blob/main/README.md#3210-create-violinplots)|Create violinplots|
+|   [3.2.10](https://github.com/kknb1982/pands-project/blob/main/README.md#3210-creating-boxplots-using-the-subplot-method)|Creating boxplots using the subplot method|
+|   [3.2.11](https://github.com/kknb1982/pands-project/blob/main/README.md#3210-create-violinplots))|Create violinplots|
 |**[4](https://github.com/kknb1982/pands-project/tree/main#4-further-reading-and-information)**|Further reading and information|
 |**[5](https://github.com/kknb1982/pands-project/tree/main#5-references))**| **References**| 
 
