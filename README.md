@@ -305,6 +305,6 @@ For more information about the Iris Fisher Data Set, the code used in this file 
 33. Pandas: How to Plot Multiple DataFrames in Subplots - Statology [Internet]. [cited 2023 May 11]. Available from: https://www.statology.org/pandas-subplots/
 34. Python Tuples - GeeksforGeeks [Internet]. [cited 2023 May 11]. Available from: https://www.geeksforgeeks.org/python-tuples/https://www.statology.org/pandas-subplots/
 35. Constrained Layout Guide — Matplotlib 3.7.1 documentation [Internet]. [cited 2023 May 11]. Available from: https://matplotlib.org/stable/tutorials/intermediate/constrainedlayout_guide.html
-36. eaborn.boxplot — seaborn 0.12.2 documentation [Internet]. [cited 2023 May 11]. Available from: https://seaborn.pydata.org/generated/seaborn.boxplot.html
+36. Seaborn.boxplot — seaborn 0.12.2 documentation [Internet]. [cited 2023 May 11]. Available from: https://seaborn.pydata.org/generated/seaborn.boxplot.html
 37. seaborn.violinplot — seaborn 0.12.2 documentation [Internet]. [cited 2023 May 9]. Available from: https://seaborn.pydata.org/generated/seaborn.violinplot.html
 38. A Complete Guide to Violin Plots | Tutorial by Chartio [Internet]. [cited 2023 May 9]. Available from: https://chartio.com/learn/charts/violin-plot-complete-guide/
