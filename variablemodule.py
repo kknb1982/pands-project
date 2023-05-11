@@ -91,6 +91,7 @@ def createboxsub():
         a += 1
     else:
         plt.savefig('boxsub.png')
+        plt.close()
 
 def getviolinplots():
     for name in datafields:
