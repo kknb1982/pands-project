@@ -91,7 +91,7 @@ The final function creates violinplots which shows the distribution of the data 
 ## 3.2 The code
 ### 3.2.1 Import the libraries needed
 In order to analyse the data a few libraries are needed:
-* `Pandas` to import the dataset and create the dataframe [[1]](https://pandas.pydata.org/pandas-docs/stable/user_guide/categorical.html). 
+* `Pandas` to import the dataset and create the dataframe [1][]. 
 * `Numpy` to create the statistical analyses of the data and support the creation of the plots [[2]](https://numpy.org/). 
 * `Matplotlib` to create the simple histograms without colouring by species [[3]](https://matplotlib.org/). 
 * `Seaborn` to create the coloured histograms and scatterplots [[4]](https://seaborn.pydata.org/index.html).
@@ -276,7 +276,8 @@ Using the structure in 3.2.11 these plots could be created as a single plot of s
 For more information about the Iris Fisher Data Set, the code used in this file and using Python for visual data analyis please read [Descriptor.ipynb](https://github.com/kknb1982/pands-project/blob/main/Descriptor.ipynb). 
 
 # 5. References
-1. Categorical data — pandas 2.0.1 documentation [Internet]. [cited 2023 Apr 24]. Available from: https://pandas.pydata.org/pandas-docs/stable/user_guide/categorical.html
+[1]: https://pandas.pydata.org/ "pandas - Python Data Analysis Library [Internet]. [cited 2023 May 10]". 
+
 2. NumPy [Internet]. [cited 2023 May 4]. Available from: https://numpy.org/
 3. Matplotlib — Visualization with Python [Internet]. [cited 2023 Apr 18]. Available from: https://matplotlib.org/
 4. Waskom M. seaborn: statistical data visualization. J Open Source Softw. 2021 Apr 6;6(60):3021. 
