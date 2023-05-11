@@ -112,7 +112,9 @@ Fisher's Iris Dataset is published at https://archive.ics.uci.edu/ml/datasets/Ir
     petalwid = "Petal Width"
     species = "Species"
     datafields = sepallen, sepalwid, petallen, petalwid, species
-
+    
+    chartvariables = datafields[:4]
+    
 ### 3.2.3 Import Fishers Iris Dataset to a DataFrame
 The code needs to import the Fisher's Iris Dataset and create a `DataFrame` using Pandas [[6]](https://pandas.pydata.org/pandas-docs/stable/user_guide/io.html#csv-text-files).
 
@@ -183,16 +185,17 @@ The next function `createsimplehist` uses the `matplotlib` histogram function to
 
 ### 3.2.7 Create histograms coloured by species
 Without being able to visually separate the different species of iris in the histogram plots it is difficult to tell which, if any, variables offer discrimination. 
-Seaborn was used [[4]](https://seaborn.pydata.org/) to create further histograms coloured by "species". A `for` loop creates each histogram in turn [[10]](https://www.w3schools.com/python/python_for_loops.asp) and an `if` statement ensures graphs for all variables bar the species are created [[11](https://www.w3schools.com/python/python_conditions.asp).
+Seaborn was used [[4]](https://seaborn.pydata.org/) to create further histograms coloured by "species". A `for` loop creates each histogram in turn [[10]](https://www.w3schools.com/python/python_for_loops.asp).  Rather than using the `if name !=species` as used is 3.2.5 this function uses a different option, it slices the first four variables from the `datafields` tuple [[34]](https://www.geeksforgeeks.org/python-tuples/https://www.statology.org/pandas-subplots/). This can be simpler and enables the same variable name to be used throughout the scripts.
+
+ and an `if` statement ensures graphs for all variables bar the species are created [[11](https://www.w3schools.com/python/python_conditions.asp).
 
     def gethisto():
-      for name in datafields:
-         if name != species:
- 
- The histograms are created using Seaborn's `histplot` method with the following options [[26]](https://seaborn.pydata.org/generated/seaborn.histplot.html?highlight=histplot):
+      for name in chartvariables:
+    
+The histograms are created using Seaborn's `histplot` method with the following options [[26]](https://seaborn.pydata.org/generated/seaborn.histplot.html?highlight=histplot):
  * data source of the data as the dataframe, 
  * x- axis data as the variable being called in the `for` loop, 
- * hue (which colours the plot) by the species
+ * hue (which colours the plot) by the species,
  * binwidth 0.1 to force the plot to have narrow columns, otherwise the automatically generated plot has different width bars across the species and measurements.
  
             sns.histplot(data=dataf, x=name, hue=species, binwidth=0.1)
@@ -228,9 +231,7 @@ Boxplots are very useful for giving a visual representation of the statistical i
     plt.close()
     
 ### 3.2.10 Creating boxplots using the subplot method
-Using the method in 3.2.9 to create a box is quick, but it can be a little tricky to get the plot in exactly the format required. Therefore, this is an additional option using the subplot function [[33]](https://www.statology.org/pandas-subplots/). Rather than using the `if name !=species` as used is 3.2.7 this function uses a different option, it slices the first four variables from the `datafields` tuple [[34]](https://www.geeksforgeeks.org/python-tuples/https://www.statology.org/pandas-subplots/). This can be simpler and enables the same variable name to be used throughout scripts.
-
-    chartvariables = datafields[:4]
+Using the method in 3.2.9 to create a box is quick, but it can be a little tricky to get the plot in exactly the format required. Therefore, this is an additional option using the subplot function [[33]](https://www.statology.org/pandas-subplots/). 
     
 The first command in the funcation defines the core details about the subplots [[33]](https://www.statology.org/pandas-subplots/):
 
