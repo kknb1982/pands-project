@@ -299,8 +299,10 @@ For more information about the Iris Fisher Data Set, the code used in this file 
 29. seaborn.pairplot — seaborn 0.12.2 documentation [Internet]. [cited 2023 Apr 22]. Available from: https://seaborn.pydata.org/generated/seaborn.pairplot.html
 30. Python matplotlib plot Figure labels: suptitle, supxlabel, supylabel [Internet]. [cited 2023 May 11]. Available from: https://www.demo2s.com/python/python-matplotlib-plot-figure-labels-suptitle-supxlabel-supylabel.html
 31. matplotlib.pyplot.subplots_adjust — Matplotlib 3.7.1 documentation [Internet]. [cited 2023 May 11]. Available from: https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.subplots_adjust.html
-32. seaborn.boxplot — seaborn 0.12.2 documentation [Internet]. [cited 2023 May 11]. Available from: https://seaborn.pydata.org/generated/seaborn.boxplot.html
-33. https://www.statology.org/pandas-subplots/
-34. https://www.geeksforgeeks.org/python-tuples/
-35. seaborn.violinplot — seaborn 0.12.2 documentation [Internet]. [cited 2023 May 9]. Available from: https://seaborn.pydata.org/generated/seaborn.violinplot.html
-
+32. pandas.DataFrame.boxplot — pandas 2.0.1 documentation [Internet]. [cited 2023 May 8]. Available from: https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.boxplot.html
+33. Pandas: How to Plot Multiple DataFrames in Subplots - Statology [Internet]. [cited 2023 May 11]. Available from: https://www.statology.org/pandas-subplots/
+34. Python Tuples - GeeksforGeeks [Internet]. [cited 2023 May 11]. Available from: https://www.geeksforgeeks.org/python-tuples/https://www.statology.org/pandas-subplots/
+35. Constrained Layout Guide — Matplotlib 3.7.1 documentation [Internet]. [cited 2023 May 11]. Available from: https://matplotlib.org/stable/tutorials/intermediate/constrainedlayout_guide.html
+36. eaborn.boxplot — seaborn 0.12.2 documentation [Internet]. [cited 2023 May 11]. Available from: https://seaborn.pydata.org/generated/seaborn.boxplot.html
+37. seaborn.violinplot — seaborn 0.12.2 documentation [Internet]. [cited 2023 May 9]. Available from: https://seaborn.pydata.org/generated/seaborn.violinplot.html
+38. A Complete Guide to Violin Plots | Tutorial by Chartio [Internet]. [cited 2023 May 9]. Available from: https://chartio.com/learn/charts/violin-plot-complete-guide/
