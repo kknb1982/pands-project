@@ -79,5 +79,7 @@ def getviolinplots():
     for name in datafields:
         if name != species:
             sns.violinplot(data=dataf, x=species, y=name)
+            plt.ylabel(name+ 'in cm')
+            plt.title(f'Violin plot of {name} in cm separated by species')
             plt.savefig(name+ 'violin.png')
             plt.close()
