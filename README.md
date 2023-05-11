@@ -86,10 +86,10 @@ The final function creates violinplots which shows the distribution of the data 
 ## 3.2 The code
 ### 3.2.1 Import the libraries needed
 In order to analyse the data a few libraries are needed:
-* `Pandas` to import the dataset and create the dataframe [1](https://pandas.pydata.org/). 
-* `Numpy` to create the statistical analyses of the data and support the creation of the plots [2](https://numpy.org/). 
-* `Matplotlib` to create the simple histograms without colouring by species [3](https://matplotlib.org/). 
-* `Seaborn` to create the coloured histograms and scatterplots [4](https://seaborn.pydata.org/index.html).
+* `Pandas` to import the dataset and create the dataframe [[1]](https://pandas.pydata.org/). 
+* `Numpy` to create the statistical analyses of the data and support the creation of the plots [[2]](https://numpy.org/). 
+* `Matplotlib` to create the simple histograms without colouring by species [[3]](https://matplotlib.org/). 
+* `Seaborn` to create the coloured histograms and scatterplots [[4]](https://seaborn.pydata.org/index.html).
 
 The libraries have been imported using aliases to make the code more streamlined. 
 
@@ -108,7 +108,7 @@ Fisher's Iris Dataset is published at https://archive.ics.uci.edu/ml/datasets/Ir
     species = "Species"
     datafields = sepallen, sepalwid, petallen, petalwid, species
 
-Due to the number of times the plotting functions need to call on the numerical columns of the data only a new variable has been created for this by slicing [34](https://www.geeksforgeeks.org/python-tuples/).
+Due to the number of times the plotting functions need to call on the numerical columns of the data only a new variable has been created for this by slicing [[34]](https://www.geeksforgeeks.org/python-tuples/).
 
     chartvariables = datafields[:4]
     
@@ -235,7 +235,7 @@ The first command in the funcation defines the core details about the subplots [
     def createboxsub():
       fig, axs = plt.subplots(nrows=2, ncols=2, layout='constrained')
       
-This creates the sub-plots in a 2 by 2 grid [[33]] in the constrained layout [[35]](https://matplotlib.org/stable/tutorials/intermediate/constrainedlayout_guide.html) which automatically tries to layout the plots in a way where labels and titles do not overlap.
+This creates the sub-plots in a 2 by 2 grid [[33]](https://www.statology.org/pandas-subplots/) in the constrained layout [[35]](https://matplotlib.org/stable/tutorials/intermediate/constrainedlayout_guide.html) which automatically tries to layout the plots in a way where labels and titles do not overlap.
 
 `suptitle` is used to create an overall title for the plot [[30]](https://www.demo2s.com/python/python-matplotlib-plot-figure-labels-suptitle-supxlabel-supylabel.html).
 
