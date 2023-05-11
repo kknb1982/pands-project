@@ -104,7 +104,7 @@ The libraries have been imported using aliases to make the code more streamlined
     import seaborn as sns 
 
 ### 3.2.2 Create the variable names
-Fisher's Iris Dataset is published at https://archive.ics.uci.edu/ml/datasets/Iris/ [5]. The data is published without variable names and therefore, these need to be created to be used in our dataframe and code.
+Fisher's Iris Dataset is published at https://archive.ics.uci.edu/ml/datasets/Iris/ [5](https://archive.ics.uci.edu/ml/datasets/Iris/). The data is published without variable names and therefore, these are created to be used in the dataframe and code.
 
     sepallen = "Sepal Length"
     sepalwid = "Sepal Width"
@@ -119,7 +119,7 @@ The code needs to import the Fisher's Iris Dataset and create a `DataFrame` usin
     dataf = pd.read_csv("https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data", names = datafields)
 
 ### 3.2.4 Finds the names of the iris species
-Throughout the analysis it is useful to interrogate the data and plot it for each species separately. Therefore, we use the `Pandas` `unique()` method on the column "species" to find out the unique values in this column [[7]](https://www.geeksforgeeks.org/get-unique-values-from-a-column-in-pandas-dataframe/). 
+Throughout the analysis it is useful to interrogate the data and plot it for each species separately. The `Pandas` `unique()` method on the column "species" finds the unique values in this column [[7]](https://www.geeksforgeeks.org/get-unique-values-from-a-column-in-pandas-dataframe/). 
 
     irisspecies = dataf.Species.unique()
 
@@ -159,7 +159,7 @@ The calculated values as stored as strings [[17]](https://realpython.com/python-
                 averages = (f'\nMean: {mean} \nMedian: {median} \nMode: {mode}\n\n')
                 f.writelines(averages)              
    
-I have used an `else` statement to complete the analysis of the "Species" data [[11]](https://www.w3schools.com/python/python_conditions.asp). Here I have separated out the data by species [[21]](https://pandas.pydata.org/pandas-docs/stable/getting_started/intro_tutorials/03_subset_data.html) and then used `describe` to analyse it [[22]](https://pandas.pydata.org/pandas-docs/dev/reference/api/pandas.Series.describe.html#pandas.Series.describe). To write to the file the data needed to be in string format so I used 'to_string' for the conversion [[23]](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.to_string.html). 'header=True' and `index=True` ensures the header and row labels are printed. 
+An `else` statement completes the analysis of the "Species" data [[11]](https://www.w3schools.com/python/python_conditions.asp). The data is separated by species [[21]](https://pandas.pydata.org/pandas-docs/stable/getting_started/intro_tutorials/03_subset_data.html) and then `describe` used to analyse it [[22]](https://pandas.pydata.org/pandas-docs/dev/reference/api/pandas.Series.describe.html#pandas.Series.describe). To write to the file the data needed to be in string format, 'to_string' is used for the conversion [[23]](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.to_string.html). 'header=True' and `index=True` ensures the header and row labels are printed. 
    
             else:
                 for x in irisspecies:
@@ -174,7 +174,7 @@ Once all the operations are complete the file is closed.
                 f.close()
                 
 ### 3.2.6 Create simple histograms
-The next function `createsimplehist` uses the `matplotlib` histogram function to create a simple histogram of each of the variables of the dataset [[24]](https://matplotlib.org/stable/gallery/statistics/hist.html). `plt.savefig` is used to save the plot to the repository rather than outputting it to the terminal [[25]]. The output is available in the file [combinedhist.png](https://github.com/kknb1982/pands-project/blob/main/combinedhist.png).
+The next function `createsimplehist` uses the `matplotlib` histogram function to create a simple histogram of each of the variables of the dataset [[24]](https://matplotlib.org/stable/gallery/statistics/hist.html). `plt.savefig` is used to save the plot to the repository rather than outputting it to the terminal [[25]](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.savefig.html#matplotlib.pyplot.savefig). The output is available in the file [combinedhist.png](https://github.com/kknb1982/pands-project/blob/main/combinedhist.png).
 
     def createsimplehist():
       dataf.hist()
@@ -182,13 +182,14 @@ The next function `createsimplehist` uses the `matplotlib` histogram function to
       plt.close()
 
 ### 3.2.7 Create histograms coloured by species
-Without being able to visually separate the different species of iris in the histogram plots it is difficult to tell which, if any, variables offer discrimination. Therefore, I used Seaborn [[4]](https://seaborn.pydata.org/) to create further histograms coloured by "species". I used a `for` loop to create each histogram in turn [[10]](https://www.w3schools.com/python/python_for_loops.asp) and an `if` statement to ensure graphs for all variables bar the species were created [[11](https://www.w3schools.com/python/python_conditions.asp).
+Without being able to visually separate the different species of iris in the histogram plots it is difficult to tell which, if any, variables offer discrimination. 
+Seaborn was used [[4]](https://seaborn.pydata.org/) to create further histograms coloured by "species". A `for` loop creates each histogram in turn [[10]](https://www.w3schools.com/python/python_for_loops.asp) and an `if` statement ensures graphs for all variables bar the species are created [[11](https://www.w3schools.com/python/python_conditions.asp).
 
     def gethisto():
       for name in datafields:
          if name != species:
  
- In order to create the histogram I used Seaborn's `histplot` method with the following options [[26]](https://seaborn.pydata.org/generated/seaborn.histplot.html?highlight=histplot):
+ The histograms are created using Seaborn's `histplot` method with the following options [[26]](https://seaborn.pydata.org/generated/seaborn.histplot.html?highlight=histplot):
  * data source of the data as the dataframe, 
  * x- axis data as the variable being called in the `for` loop, 
  * hue (which colours the plot) by the species
@@ -207,7 +208,7 @@ The resulting figure was then saved and the plot closed.
             plt.close()
 
 ### 3.2.8 Create scatterplots
-To create the scatterplots of the variable pairs I used the `pairplot` graph in Seaborn [[29]].  This easy to create graphic automatically plots each variable pair as a scatter plot and a layered Kernel Density Estimate (KDE) for the univariate plots. In order to create greater alignment with the earlier plots I added the option `diag_kind="hist"` to change this univariate plot to a histogram. To help the user understand the plots and increase their visual appeal I used `fig.suptitle`, `fig.supxlabel` and `fig.supylabel`[[30]]. To create space for these super labels to show I used `fig.subplots_adjust`[[31]].
+To create the scatterplots of the variable pairs the `pairplot` graph in Seaborn was used [[29]](https://seaborn.pydata.org/generated/seaborn.pairplot.html).  This easy to create graphic automatically plots each variable pair as a scatter plot and a layered Kernel Density Estimate (KDE) for the univariate plots. In order to create greater alignment with the earlier plots the option `diag_kind="hist"` was used to change this univariate plot to a histogram. To help the user understand the plots and increase their visual appeal `fig.suptitle`, `fig.supxlabel` and `fig.supylabel` were used [[30]](https://www.demo2s.com/python/python-matplotlib-plot-figure-labels-suptitle-supxlabel-supylabel.html). To create space for these super labels to show `fig.subplots_adjust` was used[[31]](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.subplots_adjust.html).
 
     def createpairplot():
       g= sns.pairplot(dataf, hue=species, diag_kind="hist")
@@ -219,7 +220,7 @@ To create the scatterplots of the variable pairs I used the `pairplot` graph in 
       plt.close()
      
 ### 3.2.9 Create boxplots
-Boxplots are very useful for giving a visual representation of the statistical information about some data. I used the Pandas Boxplot method to create the plots [[32]](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.boxplot.html). The default figure sizing meant that the species labels overlapped making them unreadable, so I increased it to 11 by 11. Again, I used savefig [[25]](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.savefig.html#matplotlib.pyplot.savefig) to save a copy of this figure to the repository (https://github.com/kknb1982/pands-project/blob/main/boxplot.png). 
+Boxplots are very useful for giving a visual representation of the statistical information about some data. The Pandas Boxplot method was used to create the plots [[32]](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.boxplot.html). The default figure sizing meant that the species labels overlapped making them unreadable, so it has been increased to 11 by 11. Savefig [[25]](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.savefig.html#matplotlib.pyplot.savefig) was used to save a copy of this figure to the repository (https://github.com/kknb1982/pands-project/blob/main/boxplot.png). 
 
     def getboxplots():
     dataf.boxplot(by=species, figsize=(11,11))
@@ -227,24 +228,24 @@ Boxplots are very useful for giving a visual representation of the statistical i
     plt.close()
     
 ### 3.2.10 Creating boxplots using the subplot method
-Using the method in 3.2.9 to create a box is quick, but it can be a little tricky to get the plot in exactly the format you wish. Therefore, I have included an additional option using the subplot function [[33]]. Rather than using the `if name !=species` as used is 3.2.7 this function uses a different option, it slices the first four variables from the `datafields` tuple [[34]]. This can be simpler and enables the same variable name to be used throughout scripts.
+Using the method in 3.2.9 to create a box is quick, but it can be a little tricky to get the plot in exactly the format required. Therefore, this is an additional option using the subplot function [[33]](https://www.statology.org/pandas-subplots/). Rather than using the `if name !=species` as used is 3.2.7 this function uses a different option, it slices the first four variables from the `datafields` tuple [[34]](https://www.geeksforgeeks.org/python-tuples/https://www.statology.org/pandas-subplots/). This can be simpler and enables the same variable name to be used throughout scripts.
 
     chartvariables = datafields[:4]
     
-The I start to define the function. First I add the core details about the subplots [[33]]:
+The first command in the funcation defines the core details about the subplots [[33]](https://www.statology.org/pandas-subplots/):
 
     def createboxsub():
       fig, axs = plt.subplots(nrows=2, ncols=2, layout='constrained')
       
-This creates the sub-plots in a 2 by 2 grid [[33]] in the constrained layout [[35]] which automatically tries to layout the plots in a way where labels and titles do not overlap.
+This creates the sub-plots in a 2 by 2 grid [[33]] in the constrained layout [[35]](https://matplotlib.org/stable/tutorials/intermediate/constrainedlayout_guide.html) which automatically tries to layout the plots in a way where labels and titles do not overlap.
 
-Then I used `suptitle` to create an overall title for the plot [[30]].
+`suptitle` is used to create an overall title for the plot [[30]](https://www.demo2s.com/python/python-matplotlib-plot-figure-labels-suptitle-supxlabel-supylabel.html).
 
       plt.suptitle("Box plots of Fisher Iris Dataset by Species")
 
-To ensure the subplots went to the correct axis I created a positional argument `a` and set it to one. This was increased by after each subplot was created. This meant the first plot of data goes to subplot 1 and the second to subplot 2 and so on. 
+To ensure the subplots went to the correct axis a positional argument `a` is used. This is set to 1 at the start of the function and increases by after each subplot is created. This meant the first plot of data goes to subplot 1 and the second to subplot 2 and so on. 
 
-The sub-plots were created with a `for` loop [[10]]. The subplots use Seaborn boxplot [[36]] `sns.boxplot` with the parameters to plot by species on the x axis and the current iterator on the y axis. I used Matplotlib's `ylabel` [[27]] to create the y label. An `f string` [[20]] was used to format the y label. The positional variable was then increased by one to ensure the next set of data went to the next set of axes. 
+The sub-plots were created with a `for` loop [[10]](https://www.w3schools.com/python/python_for_loops.asp). The subplots use Seaborn boxplot [[36]](https://seaborn.pydata.org/generated/seaborn.boxplot.html) `sns.boxplot` with the parameters to plot by species on the x axis and the current iterator on the y axis. Matplotlib's `ylabel` [[27]](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.xlabel.html) is used to create the y label. An `f string` [[20]](https://realpython.com/python-f-strings/) was used to format the y label. The positional variable was then increased by one to ensure the next set of data went to the next set of axes. 
       
       a = 1
       for name in chartvariables:
@@ -259,7 +260,7 @@ Once all the iterations were complete an `else` statement was used to create and
         plt.savefig('boxsub.png')
         
 ### 3.2.11 Create violinplots
-A violin plot shows the distribution of data in a unique way [[37]](https://chartio.com/learn/charts/violin-plot-complete-guide/). I used a `for` loop to create each violinplot in turn [[10]](https://www.w3schools.com/python/python_for_loops.asp) and an `if` statement to ensure graphs for all variables bar the species were created [[11]](https://www.w3schools.com/python/python_conditions.asp).  To create the violinplot I used Seaborn [[38]](https://seaborn.pydata.org/generated/seaborn.violinplot.html). Defining the `x` parameter as species, splits the data by species in each of the plots. The plot readability was improved by added a title [[28]] and ylabel [[27]].
+A violin plot shows the distribution of data in a unique way [[37]](https://chartio.com/learn/charts/violin-plot-complete-guide/). A `for` loop was used to create each violinplot in turn [[10]](https://www.w3schools.com/python/python_for_loops.asp) and an `if` statement to ensure graphs for all variables bar the species were created [[11]](https://www.w3schools.com/python/python_conditions.asp).  Seaborn was used to create the violinplot [[38]](https://seaborn.pydata.org/generated/seaborn.violinplot.html). Defining the `x` parameter as species, splits the data by species in each of the plots. The plot readability was improved by adding a title [[28]] and ylabel [[27]].
 
     def getviolinplots():
      for name in datafields:
