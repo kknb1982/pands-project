@@ -79,6 +79,7 @@ def getboxplots():
     plt.savefig('boxplot.png')
     plt.close()
 
+chartvariables = datafields[:4]
 def createboxsub():
     fig, axs = plt.subplots(nrows=2, ncols=2, layout='constrained')
     plt.suptitle("Box plots of Fisher Iris Dataset by Species")
@@ -88,10 +89,9 @@ def createboxsub():
         sns.boxplot(data=dataf, x=species, y=name)
         plt.ylabel(f'{name} in cm')
         a += 1
-        print(a)
     else:
-        plt.show()
-        
+        plt.savefig('boxsub.png')
+
 def getviolinplots():
     for name in datafields:
         if name != species:
