@@ -239,15 +239,17 @@ Then I used `suptitle` to create an overall title for the plot [[30]].
 To ensure the subplots went to the correct axis I created a positional argument `a` and set it to one. This was increased by after each subplot was created. This meant the first plot of data goes to subplot 1 and the second to subplot 2 and so on. 
 
 The sub-plots were created with a `for` loop [[10]]. The subplots use Seaborn boxplot [[36]] `sns.boxplot` with the parameters to plot by species on the x axis and the current iterator on the y axis. I used Matplotlib's `ylabel` [[27]] to create the y label. An `f string` [[20]] was used to format the y label. The positional variable was then increased by one to ensure the next set of data went to the next set of axes. 
-    a = 1
-    for name in chartvariables:
-        plt.subplot(2,2,a)
-        sns.boxplot(data=dataf, x=species, y=name)
-        plt.ylabel(f'{name} in cm')
-        a += 1
+      
+      a = 1
+      for name in chartvariables:
+         plt.subplot(2,2,a)
+         sns.boxplot(data=dataf, x=species, y=name)
+         plt.ylabel(f'{name} in cm')
+         a += 1
         
 Once all the iterations were complete an `else` statement was used to create and save the plot [[25]].         
-    else:
+     
+     else:
         plt.savefig('boxsub.png')
         
 ### 3.2.11 Create violinplots
