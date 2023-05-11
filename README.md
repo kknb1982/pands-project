@@ -48,11 +48,6 @@ The repository on github (https://github.com/kknb1982/pands-project) includes bo
 * **summary.txt:** This text file gives details about the Iris Fisher dataset.
 * **variablemodule.py:** This is the code for importing the dataset, setting variables and the functions to create the plots.
 * **Ztest.txt:** This is the test file for writing to files used by the Descriptor notebook. This can be ignored.
-* **boxplot.png:** This is a combined box plot for all the variables. Each plot has the data separated by species.
-* **combinedhist.png:** This file contains histograms of the variable data it is not segregated by species.
-* **pairplot.png:** This file uses the Seaborn parplot function to output multiple scatterplots of two variables. The plots are coloured by species.
-* **summary.txt:** Gives a summary of each variable. This is created by the Analysis.py script.
-* **variablemodule.py:** Contains all the code for the functions and importing the dataset
 
 # 2. Analysis.py
 ## 2.1 Overview of analysis.py
