@@ -91,10 +91,10 @@ The final function creates violinplots which shows the distribution of the data 
 ## 3.2 The code
 ### 3.2.1 Import the libraries needed
 In order to analyse the data a few libraries are needed:
-* `Pandas` to import the dataset and create the dataframe [1][]. 
-* `Numpy` to create the statistical analyses of the data and support the creation of the plots [[2]](https://numpy.org/). 
-* `Matplotlib` to create the simple histograms without colouring by species [[3]](https://matplotlib.org/). 
-* `Seaborn` to create the coloured histograms and scatterplots [[4]](https://seaborn.pydata.org/index.html).
+* `Pandas` to import the dataset and create the dataframe [1](https://pandas.pydata.org/). 
+* `Numpy` to create the statistical analyses of the data and support the creation of the plots [2](https://numpy.org/). 
+* `Matplotlib` to create the simple histograms without colouring by species [3](https://matplotlib.org/). 
+* `Seaborn` to create the coloured histograms and scatterplots [4](https://seaborn.pydata.org/index.html).
 
 The libraries have been imported using aliases to make the code more streamlined. 
 
